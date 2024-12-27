@@ -1,0 +1,254 @@
+.box_cart_container {
+    width: 70%;
+    margin: 7rem auto 5rem auto;
+}
+
+.box_cart_container p.no-reviews-message {
+    color: #FA442C;
+    text-align: center;
+}
+
+.box_container_cart {
+    width: 100%;
+}
+
+.container_cart_item {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 3rem;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.box_item_gourp {
+    width: 100%;
+}
+
+.cart_close_item_iconn {
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    padding: 5px;
+}
+
+.close_item_iconn {
+    font-size: 20px;
+}
+
+.sotre_name_box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.box_item_image {
+    padding: 20px;
+    display: flex;
+    /* border-bottom: 1px solid #DDDD; */
+}
+
+.box_item_image img {
+    width: 20%;
+}
+
+.box_item_text {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    flex-direction: column;
+    margin-left: 2rem;
+    font-size: 17px;
+}
+
+.box_item_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 7rem;
+    font-size: 22px;
+}
+
+/* Amount */
+.box_item_icon span {
+    width: 10%;
+}
+
+.box_item_icon span input {
+    width: 100%;
+    text-align: center;
+}
+
+.icon_minus_plus {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.sub {
+    cursor: pointer;
+}
+
+
+
+.box_item_total {
+
+    position: relative;
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
+}
+
+.cart_Total_box {
+    margin: 2rem 0;
+
+}
+
+.box_item_total_text {
+    width: 100%;
+    display: flex;
+    padding: 0.7rem 1rem;
+    justify-content: space-between;
+}
+
+.box_item_total_text p {
+    width: 20%;
+
+}
+.txt_Total{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.btn {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout_btn {
+    padding: 12px 28px;
+    background: #FA442C;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px;
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+
+/* btnicon_delete */
+.box_item_icon {
+    margin-top: 6rem;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+}
+
+#btnicon_delete {
+    font-size: 22px;
+    color: #FFF;
+}
+
+.box_icon_order {
+    position: relative;
+
+}
+
+.btnicon_delete_order {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: #FA442C;
+    border-radius: 8px;
+    justify-content: center;
+    padding: 7px;
+    top: 0;
+    right: 0;
+}
+
+
+/* cart empty */
+.cart {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #ff0000;
+}
+
+/*=========== Resposive =============*/
+
+
+/* For smartphones with a maximum width of 768px */
+@media only screen and (max-width: 768px) {}
+
+/* For smartphones with a maximum width of 640px */
+@media only screen and (max-width: 640px) {}
+
+/* For smartphones with a maximum width of 480px */
+@media only screen and (max-width: 431px) {
+    .box_cart_container {
+        width: 100%;
+        margin: 6rem auto 5rem auto;
+    }
+
+    .box_container_cart {
+        display: block;
+        overflow: hidden;
+    }
+
+    .container_cart_item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 10px 10px 20px 10px;
+        margin-bottom: 2rem;
+    }
+
+    .store h3 {
+        margin-left: 0.8rem;
+    }
+
+    .box_container_back_icons_back {
+        margin-left: 0.5rem;
+    }
+
+    .box_item_image {
+        width: 350px;
+        height: auto;
+        overflow: hidden;
+        border-bottom: 1px solid #ddd;
+        align-items: center;
+    }
+
+    .box_item_image img {
+        width: 30%;
+        height: 130px;
+        object-fit: cover;
+    }
+
+    .btnicon_delete_order {
+        top: 010px;
+        right: 0;
+    }
+
+    .sotre_name_box {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
+
+/* For smartphones with a maximum width of 320px */
+@media only screen and (max-width: 320px) {}

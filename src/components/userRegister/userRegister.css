@@ -1,0 +1,101 @@
+
+.box_forgot {
+    width: 80%;
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center;
+}
+.title{
+    margin-top: 1.5rem;
+    font-size: 18px;
+}
+.container_form_user{
+    margin-top: 3rem;
+}
+
+.box_infor{
+  font-size: 18px;
+  font-weight: 600;
+  text-align: start;
+}
+
+.box_title{
+    text-align: start;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.container_form_user {
+  display: grid;
+  margin: 0 auto;
+  gap: 15px;
+  width: 40%;
+}
+
+.container_form_user2 {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+ 
+}
+.container_form_user2 input{
+  border: none;
+}
+.verification{
+  right: 5px;
+  position: absolute;
+  padding: 8px 10px;
+  border: 1px solid var(--gray);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.container_form_user input,
+.container_form_user button {
+  width: 100%;
+  padding: 1rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--gray);
+  font-size: 16px;
+}
+
+.container_form_user button {
+  background-color: var(--orange);
+  cursor: pointer;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
+.container_form_user input:focus {
+  outline: none;
+}
+
+/*============== Responsive =====================*/
+@media (max-width: 768px) {
+  .box_forgot {
+    width: 100%;
+    top: 40%;
+    left: 50%;
+  /* Adjusting width for medium-sized screens */
+  }
+  .box_title{
+    margin-left: 1rem;
+  }
+  .container_form_user {
+    width: 90%;
+    display: grid;
+  }
+  .container_form_user input {
+    width: 100%;
+  }
+  .box_infor{
+    margin-left: 1.5rem;
+  }
+  
+}
+  
+
+
+  

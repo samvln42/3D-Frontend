@@ -1,0 +1,21 @@
+.inputproduct_box_dplay{
+    width: 100%;
+    margin: 30px 0;
+    padding: 15px 10px;
+    border-radius: 7px;
+    border: 1px solid #DDDCE1;
+}
+
+.imag_qrcode_store {
+    text-align: center;
+}
+
+.imag_qrcode_store img {
+    width: 30%;
+}
+
+@media only screen and (max-width: 480px) {
+    .imag_qrcode_store img {
+        width: 50%;
+    }
+}

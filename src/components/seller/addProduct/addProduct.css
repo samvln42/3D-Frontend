@@ -1,0 +1,194 @@
+.header_box_management {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    width: 60%;
+    height: 70px;
+}
+
+/* .box_management_iconnback {
+    display: flex;
+    align-items: center;
+    color: #777;
+} */
+
+.addproduct_container {
+    position: relative;
+    width: 60%;
+    margin: 1rem auto;
+    border-radius: 10px;
+    padding: 30px;
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+
+}
+
+.inputproduct_box {
+    margin: 20px 0;
+}
+
+.inputproduct {
+    margin-top: 10px;
+    width: 100%;
+    padding: 15px 10px;
+    border-radius: 7px;
+    border: 1px solid #DDDCE1;
+}
+
+
+.select_box {
+
+    padding: 15px 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+.select_box .option_itemD {
+
+    padding: 100px;
+}
+
+.size_product_box_container {
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 7px;
+    border: 1px solid #DDDCE1;
+}
+
+.size_content_box {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.addsize_btn {
+    padding: 15px 30px;
+    color: #FFF;
+    border-radius: 7px;
+    background: #FF4F16;
+    cursor: pointer;
+}
+
+.box_sizeTso_add {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.box_sizeTo_add_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 7px 10px;
+    border: 1px solid #DDDCE1;
+    border-radius: 7px;
+}
+
+.iconn_close_addSize {
+    font-size: 27px;
+    cursor: pointer;
+    color: #FF4F16;
+}
+
+.add_img_product_box,
+.boxicon_img_input {
+    margin: 15px 0;
+}
+
+.boxicon_img_input {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 15px 20px;
+    border: 1px solid #DDDCE1;
+    border-radius: 7px;
+}
+
+.boxicon_img_iconn {
+    font-size: 23px;
+}
+
+.btn_save_productUser {
+    cursor: pointer;
+    top: -15px;
+    right: 30px;
+    position: absolute;
+    width: 150px;
+    margin-top: 2rem;
+    padding: 12px 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    background: #FF4F16;
+    box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
+}
+
+.btn_Delete_productUser {
+    cursor: pointer;
+    top: -15px;
+    right: 200px;
+    position: absolute;
+    width: 150px;
+    margin-top: 2rem;
+    padding: 12px 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    background: red;
+    box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 431px) {
+
+    .header_box_management {
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .addproduct_container {
+        width: 100%;
+        margin: 20px 0;
+        padding: 20px 10px;
+    }
+
+    .box_sizeTso_add {
+        gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .size_product_box_container {
+        width: 100%;
+        overflow: hidden;
+        padding: 20px 10px;
+    }
+
+    .box_sizeTo_add_item {
+        gap: 0;
+    }
+
+    .size_content_box {
+        gap: 1rem;
+    }
+
+    .btn_save_productUser {
+        position: unset;
+        width: 100%;
+        padding: 20px 0;
+        border-radius: 30px;
+    }
+
+    .btn_Delete_productUser {
+        position: unset;
+        width: 100%;
+        padding: 20px 0;
+        border-radius: 30px;
+    }
+
+}

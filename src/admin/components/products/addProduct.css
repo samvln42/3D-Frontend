@@ -1,0 +1,273 @@
+#post {
+    display: flex;
+    position: absolute;
+    width: 99%;
+    padding: 1.5rem 1.5rem 0 17rem;
+}
+
+/* input text */
+/* .boxcontainerSpan_Box {
+    width: 100%;
+} */
+
+.box_container_product {
+    width: 100%;
+    margin-top: 6.5rem;
+    margin-right: 1rem;
+    padding: 0.5rem 2.5rem 2.5rem 2.5rem;
+    flex-direction: column;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+    background: #FFF;
+}
+.box_container_product h3{
+    padding: 25px 0;
+    font-size: 20px;
+}
+.group_container_product {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.box_text h2 {
+    padding: 20px 0;
+}
+
+.deleteBox_productconotent {
+    position: absolute;
+    background-color: red;
+    font-size: 20px;
+    color: #FFF;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 7px;
+    cursor: pointer;
+    z-index: 99;
+}
+.box_input-img input{
+    display: none;
+}
+
+
+.box_container_image{
+    padding: 2px;
+}
+/* .product_category{
+
+} */
+
+.addProduct_box_content_afterThat {
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    border-radius: 5px;
+    background: #FFF;
+}
+
+
+/* Hidden product ID */
+.addProduct_box_content_afterThat .input-box .id {
+    display: none;
+}
+
+.addProduct_box_content_afterThat .input-box .box input {
+    width: 100%;
+    height: 2.4rem;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    padding: 0 10px;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+
+}
+
+
+
+.product_category{
+    width: 100%;
+    height: 2.4rem;
+    margin-top: 0.5rem;
+    font-size: 15px;
+    padding: 0 5px;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+
+}
+
+
+.addProduct_box_content_afterThat img {
+    cursor: pointer;
+}
+
+.image {
+    width: 60%;
+    display: grid;
+    height: 30vh;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+.edit_images {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 4px 4px 0 4px;
+    font-size: 25px;
+    margin: 3px;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    position: relative;
+}
+#icon_ci_camera{
+    color: #f46738;
+}
+
+
+/* Submit button */
+.Box_btn_haed{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn_submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn_submit button {
+    background-color: #FF4F16;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.3rem;
+    cursor: pointer;
+    border: none;
+}
+
+/*========= post_add_product ============*/
+
+.post_add_product{
+    width: 20%;
+    height: 55vh;
+    display: flex;
+    gap: 1rem;
+}
+
+.iconimage{ 
+    width: 100%;
+    height: 90.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+    
+}
+#icon_shoppingbag{
+    width: 80px;
+    height: 80px;
+    color: #f46738;
+    padding: 10px 15px;
+    border: solid 1px #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#icon_goplus{
+    width: 20px;
+    height: 20px;
+    margin-top: 2.5rem;
+    margin-left: -1.8rem;
+    border: solid 1px #ccc;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    color: #f46738;
+    cursor: pointer;
+}
+
+
+.box_input-img {
+    position: relative;
+    cursor: pointer;
+    width: 396px;
+    height: 40vh;
+    overflow: hidden;
+}
+.box_input-img img{
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box_input-img input {
+    display: none;
+}
+
+
+/* ========== box add size ==========*/
+.box_size_product_container{
+    width: 100%;
+    margin-top: 8px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+.box_size_add{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.box_size_add_item{
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+}
+#icon_MdClose{
+    font-size: 18px;
+}
+.box_size_content{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 8px 0;
+}
+.box_size_content input{
+    width: 100%;
+    height: 2.4rem;
+    padding: 0 8px;
+    border:  solid 1px #ccc;
+    border-radius: 4px;
+}
+.btn_addsize{
+    height: 2.4rem;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    background: #FF4F16;
+    color: #FFF;
+    border-radius: 4px;
+    cursor: pointer;
+}

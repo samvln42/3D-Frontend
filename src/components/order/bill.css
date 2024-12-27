@@ -1,0 +1,143 @@
+/* Bill */
+.bill {
+    width: 60%;
+    margin: 6rem auto 0 auto;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.bill-detial {
+    padding: 0 30px 30px 30px;
+    margin-bottom: 18rem;
+}
+
+.guopoidHead {
+    display: grid;
+    border-bottom: #DDDCE1 solid 1px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.iconnboxx {
+    text-align: center;
+    font-size: 45px;
+    color: #347FFF;
+}
+
+.idf {
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.billGopBox {
+    display: grid;
+    width: 100%;
+    margin: auto;
+    padding: 30px 0;
+    border-bottom: #DDDCE1 solid 1px;
+}
+
+.billGopBox table {
+    width: 100%;
+}
+
+.billGopBox table tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.billGopBox table tr th {
+    width: 15%;
+    text-align: center;
+}
+
+.billGopBox table tr td {
+    width: 15%;
+    text-align: center;
+}
+
+.titlePrice {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.box_place{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.place-on {
+    display: grid;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+
+.Box_btn_bill{
+    width: 170px;
+    height: 150px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    color: aliceblue;
+    /* background: #FF4F16; */
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.Box_btn_bill img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
+}
+.Delivered_review{
+    padding: 2px 10px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #FF4F16;
+}
+.Delivered_review:hover{
+    background-color: #f44207;
+    box-shadow: rgba(0, 0, 0, 0.10);
+
+}
+/* Responsive */
+@media screen and (max-width: 431px) {
+    .bill {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .bill-detial {
+        padding: 0;
+    }
+    .titlePrice{
+        padding: 2rem 10px;
+    }
+    .place-on{
+        padding: 0;
+    }
+    .box_place{
+        display: block;
+    }
+    .Box_btn_bill{
+        border: none;
+    }
+    .Box_btn_bill img{
+        width: 320px;
+        margin-top: 2rem;
+
+    }
+}
+
+.Box_China_Branch {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}

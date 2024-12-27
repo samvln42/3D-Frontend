@@ -1,0 +1,550 @@
+/* ----------- Header ---------------- */
+body {
+    background-color: #FFF;
+}
+.box_RotatingLines{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.header_boxx {
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #FFF;
+    z-index: 99;
+}
+
+.headerr_positoinn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    height: 57px;
+}
+
+.heaRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-page-img {
+    display: flex;
+    justify-content: center;
+}
+
+.product-page-img img {
+    width: 70%;
+    margin: auto;
+}
+
+/* ----------- END Header ---------------- */
+
+
+/* ----------- Text Name, Price and Description ---------------- */
+.contentBody {
+    width: 70%;
+    margin: 6rem auto 0 auto;
+}
+
+.spennofStyle {
+    width: 20px;
+    height: 40px;
+    background-color: #FF4F16;
+    border-radius: 4px;
+}
+
+.box_container_back_icons_back {
+    display: flex;
+    font-size: 20px;
+    gap: 0.5rem;
+    color: #858080;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.box_container_back_icons_back p {
+    font-size: 18px;
+    color: #858080;
+}
+
+.asd2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.box_betavinOfob {
+    margin-bottom: 2rem;
+}
+
+.boxProduct_deteils {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 0;
+    margin: 2rem 0;
+}
+
+.txt_nameP {
+    font-size: 30px;
+}
+
+.money_txt {
+    color: #0E64D2;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.72px;
+}
+
+.startBox {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.txt_nameP,
+.money_txt,
+.startBox,
+.txt_description,
+.color_product,
+.size_product {
+    padding: 0.7rem 0;
+
+}
+
+#icon_stars {
+    width: 25px;
+    height: 25px;
+    color: #f6ea07;
+}
+
+#icon_star {
+    width: 25px;
+    height: 25px;
+}
+
+.txt_description {
+    font-family: Poppins;
+    font-size: 16px;
+}
+
+.size_product {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.size_product .size {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Checked radio color */
+.color_product label {
+    cursor: pointer;
+}
+
+.color_product div {
+    display: flex;
+    align-items: center;
+}
+
+.color_product div input {
+    margin-left: 0.3rem;
+}
+
+/* Checkbox size */
+.size_product input {
+    display: none;
+}
+
+.echColor {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 1000px;
+    border: 3px solid black;
+
+}
+
+.echSize {
+    cursor: pointer;
+    padding: 5px 15px;
+    border: 2px solid rgba(0, 0, 0, 0.30);
+    border-radius: 5px;
+}
+
+/* Acctive sizes */
+.echSize.active {
+    cursor: pointer;
+    padding: 7px 17px;
+    border: 2px solid #FF4F16;
+    border-radius: 5px;
+    background-color: #FF4F16;
+    color: #FFF;
+}
+
+.echSize:hover {
+    background-color: #FF4F16;
+    color: #FFF;
+}
+
+.echSize:active {
+    background-color: #FF4F16;
+    color: #FFF;
+}
+
+
+.Count_product {
+    display: flex;
+    gap: 1rem;
+    padding: 25px 0;
+}
+
+.echbtn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.btnBut {
+    background-color: #ff5016ec;
+    color: #FFF;
+    border: 1px solid #FF4F16;
+
+}
+
+.btnBut:hover {
+    background-color: #FF4F16;
+    color: #FFF;
+}
+
+.btnAdd {
+    border: #FF4F16 1px solid;
+    color: #FF4F16;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.btnAdd:hover {
+    background-color: #FF4F16;
+    color: #fff;
+}
+
+/* ----------- END Text Name, Price and Description ---------------- */
+
+/* ----------- box_item_icon  ---------------- */
+.container_item_icon {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    font-size: 22px;
+}
+
+.store_boxLink {
+    width: 150px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 10px 0;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #F3F3F3;
+    background: #FAFAFA;
+    box-shadow: 2px 2px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+.iconn_linkbox {
+    font-size: 23px;
+}
+
+.container_item_icon span {
+    width: 5%;
+    text-align: center;
+}
+
+.container_item_icon span input {
+    width: 100%;
+    text-align: center;
+}
+
+
+.container_minus_plus {
+    width: 35px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+.container_minus_plus:hover {
+    background-color: #FF4F16;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+}
+
+/* ------------------last Item------------------ */
+
+.txtContentproduct {
+    width: 80%;
+}
+.txtContentproduct p{
+    font-size: 18px;
+    color: black;
+}
+
+.desc{
+    color: black;
+}
+.box_comment_connntent {
+    margin: 20px 0;
+}
+
+.description_container {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+}
+
+.description_container img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.review_box {
+    margin-top: 30px;
+    padding: 30px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+}
+/* 
+.review_box form {
+    display: block;
+    background: #000;
+} */
+
+.review_boxstar {
+    /* display: flex; */
+    gap: 10px;
+    align-items: center;
+    margin: 30px 0 10px 0;
+}
+
+.review_boxstar .star{
+    /* color: #f6ea07; */
+    font-size: 1.5rem;
+}
+
+.review_boxstar img {
+    width: 20px;
+
+}
+
+.comment_box_content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment_box_content .review-text {
+    width: 90%;
+    border: none;
+    resize: none;
+    border-bottom: 1px solid #ccc;
+    margin-top: 1rem;
+    line-height: 1.4;
+    padding: 0 1rem;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.comment_box_content .review-text:focus{
+    outline: none;
+}
+
+.btn_submit_comment {
+    cursor: pointer;
+    border-radius: 7px;
+    background: rgba(255, 79, 22, 0.10);
+    padding: 10px 40px;
+    font-size: 16px;
+}
+
+.last_box_review {
+    padding: 30px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: rgba(255, 79, 22, 0.10);
+}
+
+.no-available {
+    color: red;
+    font-size: 16px;
+}
+
+.box_head_user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review_boxstar_user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #FFBF00;
+    font-size: 1.5rem;
+    gap: 5px;
+    padding-top: 10px;
+}
+
+.comment__userImg img {
+    width: 100%;
+}
+
+.box_head_user_title {
+    display: flex;
+    gap: 10px;
+}
+
+.comment_boxOfuser {
+    padding: 10px 20px;
+    word-wrap: break-word;
+}
+
+.comment__userImg {
+    width: 10%;
+    overflow: hidden;
+}
+
+.comment_boxOfuser p {
+    color: #000;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.star {
+    width: 86px;
+    height: 15px;
+    margin-top: 12px;
+    background: url("../assets/img/icon/star.png") no-repeat;
+    background-size: 86px;
+    position: relative;
+
+    .on {
+      width: 90%;
+      height: 15px;
+      background: url("../assets/img/icon/star_on.png") no-repeat;
+      background-size: 86px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+/* ----------- Media Screen ---------------- */
+@media screen and (min-width: 1537px) and (max-width: 1950px) {}
+
+@media screen and (max-width: 1025px) {}
+
+@media screen and (max-width: 830px) {}
+
+
+
+@media screen and (max-width: 431px) {
+    .contentBody {
+        width: 100%;
+        overflow: hidden;
+        padding: 10px;
+    }
+
+    .product-page-img {
+        display: block;
+    }
+
+    .product-page-img img {
+        width: 100%;
+        margin: 0;
+    }
+
+    .boxProduct_deteils {
+        width: 100%;
+        display: block;
+        margin: 0;
+    }
+
+    .txtContentproduct {
+        padding: 0 10px;
+    }
+
+    .review_box {
+        padding: 10px;
+    }
+
+    .last_box_review {
+        padding: 10px 0;
+    }
+
+    .no-available {
+        padding: 0 1rem;
+    }
+}
+
+.review-list {
+    margin-top: 20px;
+  }
+  
+  .review-list-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .no-reviews-message {
+    color: #888;
+  }
+  
+  .reviews {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .review-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .rating {
+    font-weight: bold;
+  }
+  
+  .comment {
+    margin-top: 5px;
+  }
+
+
+@media screen and (max-width: 376px) {}

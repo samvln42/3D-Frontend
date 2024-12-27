@@ -1,0 +1,124 @@
+
+.box_forgot {
+    width: 80%;
+    margin: auto;
+    padding: 70px 0;
+    text-align: center;
+}
+.title{
+    margin-top: 1.5rem;
+    font-size: 18px;
+}
+.container_form_sellerregister{
+    margin-top: 3rem;
+}
+
+.title_seller{
+    font-size: 18px;
+    text-align: start;
+    margin-top: 2rem;
+}
+.title_seller2{
+    margin-top: 2rem;
+    font-size: 18px;
+    text-align: start;
+}
+.box_text{
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    background: #fff;
+    width: 100%;
+    height: 100px;
+    padding: 10px 15px;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+.container_form_sellerregister2 {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+ 
+}
+.container_form_sellerregister2 input{
+  border: none;
+}
+.verification{
+  right: 5px;
+  position: absolute;
+  padding: 8px 10px;
+  border: 1px solid var(--gray);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+
+.container_form_sellerregister {
+  display: grid;
+  margin: 0 auto;
+  gap: 15px;
+  width: 40%;
+}
+
+.container_form_sellerregister input,
+.container_form_sellerregister button {
+  width: 100%;
+  padding: 1rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--gray);
+}
+
+.container_form_sellerregister button {
+  background-color: var(--orange);
+  cursor: pointer;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
+.container_form_sellerregister input:focus {
+  outline: none;
+}
+
+
+
+/*============== Responsive =====================*/
+@media (max-width: 768px) {
+    .box_forgot {
+      width: 100%;
+      top: 40%;
+      left: 50%;
+    }
+    .container_form_sellerregister {
+      width: 100%;
+    }
+    .container_form_sellerregister input {
+      width: 90%;
+      margin: auto;
+    }
+    .container_form_sellerregister textarea {
+      width: 90%;
+    }
+    .container_form_sellerregister button {
+      width: 90%;
+      margin: auto;
+    }
+    .verification{
+      right: 25px;
+    }
+  
+    .title_seller{
+        margin-left: 1.5rem;
+    }
+    .title_seller2{
+        margin-left: 1.5rem;
+    }
+    .box_text{
+        width: 90%;
+        margin: auto;
+    }
+  }
+  
+
+
+  

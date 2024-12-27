@@ -1,0 +1,18 @@
+.address_box_conattiner {
+    width: 60%;
+    margin: 7rem auto 0 auto;
+}
+.box_address_input{
+    margin-top: 40px;
+}
+.box_address_input .box {
+    margin: 10px 0 10px 0;
+}
+
+.box_address_input .box input {
+    width: 100%;
+    padding: 10px ;
+    margin: 10px 0;
+    border-radius: 7px;
+    border: 1px solid #b6b6b6;
+}

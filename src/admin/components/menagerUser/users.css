@@ -1,0 +1,378 @@
+/* ============ container_body_adminuser =========== */
+.container_body_adminuser {
+    width: 100%;
+    z-index: 999;
+    padding: 88px 20px 20px 255px;
+}
+
+.container_box_adminusers {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 30px 20px 20px 20px;
+    background: #FFF;
+    box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.15);
+    border-radius: 10px;
+}
+
+.box_search_user {
+    width: 1126px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px 0 0;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.box_search_user img {
+    width: 55px;
+    height: 55px;
+}
+
+.box_users {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*====== input search box ========*/
+
+.search-box_menageruser {
+    display: flex;
+    width: 100%;
+    padding: 10px 30px 10px 0;
+}
+
+
+
+.search-box_menageruser input {
+    width: 500px;
+    height: 45px;
+    border: 1px solid #ccc;
+    background: #FFF;
+    padding: 0 1rem;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-box_menageruser button {
+    background: #ff7446;
+    color: #FFF;
+    width: 75px;
+    height: 45px;
+    border: 1px solid #ccc;
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+
+/* ============ box_users_user =========== */
+
+.box_users_user {
+    width: 95%;
+    height: 90px;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 30px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.box_dp_txtandiamge {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.box_user_text p {
+    padding: 3px;
+}
+
+.container_chat_name {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.box_user_img img {
+    width: 70px;
+    height: 70px;
+}
+
+.container_user_icon {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#icon_edit_delete {
+    width: 25px;
+    height: 25px;
+    color: #FFF;
+}
+
+.btn_edit_user {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    background: #27A7EF;
+    border-radius: 8px;
+}
+
+.btn_delete_user {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    background: #FA442C;
+    border-radius: 8px;
+}
+
+
+/* ============ box_next_user =========== */
+
+
+.box_next_user {
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    bottom: 0;
+}
+
+.box_prev_next_user {
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #FA442C;
+}
+
+.box_prev_nexts_user {
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #27A7EF;
+}
+
+#box_prev_next_icon {
+    width: 20px;
+    height: 20px;
+}
+
+.num_users {
+    width: 60px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+}
+
+.box_next_user p {
+    font-size: 16px;
+}
+
+.box_num_users {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ============ popup delete ===========*/
+.background_addproductpopup_box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #00000010;
+    z-index: 999;
+}
+
+.hover_addproductpopup_box {
+    width: 30%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box_logout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 15vh;
+    background-color: #FFF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.box_logout p{
+    font-size: 18px;
+}
+
+.btn_cancel {
+    background-color: #F2F3F7;
+    color: #000;
+    font-size: 18px;
+}
+
+.btn_confirm {
+    background-color: #347FFF;
+    color: #FFF;
+    font-size: 18px;
+}
+
+.btn_cancel:hover {
+    background-color: #e7e8ee;
+}
+
+.btn_confirm:hover {
+    background-color: #3076f0;
+}
+
+.btn_addproducttxt_popup {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    padding: 20px;
+
+}
+
+.input_of_txtAddproduct {
+    width: 80%;
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid #DDDCE1;
+}
+
+.btn_foasdf {
+    display: flex;
+}
+
+/* ============ container prev next ===========*/
+
+.box_container_next_resume {
+    display: flex;
+    gap: 1rem;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.5rem;
+    bottom: 0;
+  }
+  
+  .box_prev_left_resume {
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #fa442c;
+  }
+  
+  .box_num_resume {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .num_admin_resume {
+    width: 70px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+  }
+  
+  .num_admin_resume.active {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+  }
+  
+  .box_prev_right_resume {
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #27a7ef;
+  }
+
+@media screen and (max-width: 992px) {
+  .search-box_menageruser {
+    width: 100%;
+  }
+
+  .search-box_menageruser input {
+    width: 100%;
+  }
+
+  .box_users_order {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container_order_icon {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn_view,
+  .btn_pending {
+    width: 100%;
+    text-align: center;
+  }
+}

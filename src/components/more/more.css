@@ -1,0 +1,175 @@
+
+/* .header_box_management{
+    padding: 130px 10px 10px 10px;
+}
+.header_box_management p{
+    font-size: 17px;
+    font-weight: 600;
+    color: #5a5858dd;
+} */
+
+h3{
+    margin-top: 7rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.MorePage {
+    width: 60%;
+    margin: auto;
+    /* padding: 40px 0; */
+}
+
+
+.profile_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 10px 12px;
+}
+
+#icons_back {
+    width: 25px;
+    height: 25px;
+}
+
+
+.left_box {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.left_box img {
+    width: 10%;
+    border-radius: 50%;
+}
+
+.user_name {
+    font-size: 19px;
+}
+
+.right_box button {
+    padding: 10px 35px;
+    font-size: 16px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    background-color: #ff471a;
+    color: #fff;
+}
+
+.hr {
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+
+}
+
+.more-menu-list:hover {
+    color: var(--orange);
+
+}
+
+.menu_icon {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
+}
+
+#icon_more {
+    width: 50px;
+    height: 25px;
+    color: #5a5858dd;
+}
+
+#icon_more {
+    width: 50px;
+    height: 25px;
+    color: #282B30;
+}
+
+.menu_icon:hover {
+    color: var(--orange);
+    transition: 0.5s;
+}
+
+.confirmation-popup {
+    position: fixed;
+    width: 25%;
+    height: 18%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2eeee;
+    border-radius: 5px;
+    color: black;
+    top: 50%;
+    left: 50%;
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+}
+
+.btn_ok_on {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_yes{
+    padding: 10px 50px;
+    padding: 6px 18px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #347FFF;
+    
+}
+.btn_on{
+    padding: 10px 50px;
+    background: rgb(248, 74, 74);
+
+}
+
+.btn_on {
+    padding: 6px 18px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #cacad2;
+}
+
+
+
+/*============== Responsive =====================*/
+@media (max-width: 768px) {
+    h3{
+        text-align: center;
+        margin-top: 7rem;
+    }
+    .MorePage {
+        width: 100%;
+        /* margin-top: 10rem; */
+    }
+
+    .left_box img {
+        width: 16%;
+    }
+
+    .confirmation-popup {
+        width: 80%;
+        height: 15%;
+        top: 50%;
+        left: 50%;
+    }
+
+}

@@ -1,0 +1,177 @@
+#posts {
+    display: flex;
+    position: absolute;
+    width: 99%;
+    padding: 1.5rem 1.5rem 0 17rem;
+}
+
+.box_container_products {
+    width: 100%;
+    margin-top: 6.5rem;
+    margin-right: 1rem;
+    padding: 0.5rem 2.5rem 2.5rem 2.5rem;
+    flex-direction: column;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+    background: #FFF;
+}
+
+.Box_btn_haed{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.btn_submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn_submit button {
+    background-color: #FF4F16;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.3rem;
+    cursor: pointer;
+    border: none;
+    /* เพิ่มบรรทัดต่อไปนี้ */
+    display: inline-block; /* ทำให้แน่ใจว่าปุ่มแสดงผล */
+    margin: 10px 0; /* เพิ่มระยะห่างด้านบนและล่าง */
+}
+
+.group_container_category {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    /* margin-left: 25rem; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.Category_box_content {
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    border-radius: 5px;
+    background: #FFF;
+}
+
+
+/* Hidden product ID */
+.Category_box_content .input-box .id {
+    display: none;
+}
+
+.Category_box_content .input-box .box input {
+    width: 100%;
+    height: 2.4rem;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    padding: 0 10px;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+}
+
+.Category_box_content img {
+    cursor: pointer;
+}
+
+.box_input-img_category {
+    position: relative;
+    cursor: pointer;
+    width: 300px;
+    height: 38vh;
+    overflow: hidden;
+}
+.box_input-img_category img{
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box_input-img_category input {
+    display: none;
+}
+
+.edit_images {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 4px 4px 0 4px;
+    font-size: 25px;
+    margin: 3px;
+}
+
+.trigger_popup_fricc {
+    cursor: pointer;
+    position: relative;
+}
+
+#icon_ci_camera{
+    color: #f46738;
+}
+
+.box_container_image{
+    padding: 2px;
+}
+
+@media screen and (max-width: 1200px) {
+    #posts {
+
+        padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+
+    .box_container_products {
+        width: 100%;
+        display: block;
+        margin-top: 6rem;
+        padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Box_btn_haed {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .box_input-img_category {
+        width: 100%;
+        height: 30vh;
+    }
+
+    .group_container_category {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .box_container_products {
+        width: 100%;
+        display: block;
+        margin-top: 6rem;
+    }
+
+    .btn_submit {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .Category_box_content .input-box .box input {
+        font-size: 12px;
+    }
+
+    .group_container_category {
+        grid-template-columns: 1fr;
+    }
+}

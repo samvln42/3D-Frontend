@@ -1,0 +1,40 @@
+.box_contanier_stoerNumonevb{
+    margin-top: 2rem;
+}
+
+.box_contanier_stoer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem auto;
+    width: 95%;
+    padding: 2rem;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+}
+
+.btn_box_Cont {
+    display: flex;
+    gap: 1rem;
+}
+
+.viewMore_storeDetails {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 7px;
+    padding: 10px 40px;
+    border: none;
+    background: #347effda;
+    box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
+}
+
+.delete_storeDetails {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 7px;
+    padding: 10px 40px;
+    border: none;
+    background: #fa442cd8;
+    box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,264 @@
+/* Bill */
+#abill {
+    position: absolute;
+    width: 80%;
+    margin-top: 6.5rem;
+    left: 18%;
+}
+
+
+.container_Order_Bill {
+    justify-content: space-between;
+}
+
+.container_Order_Bill,
+.back_Order_Bill {
+    display: flex;
+    align-items: center;
+}
+.back_Order_Bill{
+    gap: 10px;
+}
+/* bill no: id: name: */
+.aguopoidHead {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 2rem;
+}
+
+.aiconnboxx {
+    text-align: center;
+    font-size: 45px;
+    color: #347FFF;
+}
+
+.abill-detial {
+    padding: 25px 40px 50px 40px;
+    background: #FFF;
+    box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.15);
+    border-radius: 10px;
+    margin-bottom: 4rem;
+}
+
+.aidf {
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.abillGopBox {
+    display: grid;
+    width: 100%;
+    margin: auto;
+    padding: 30px 0;
+
+}
+
+
+.abillGopBox table {
+    width: 100%;
+}
+
+.abillGopBox table tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.abillGopBox table tr th {
+    width: 15%;
+    text-align: center;
+}
+
+.abillGopBox table tr td {
+    width: 15%;
+    text-align: center;
+}
+
+.atitlePrice {
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+.container_aplace{
+    padding: 0 30px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box_show_bill{
+    width: 150px;
+    height: auto;
+    padding: 5px 5px;
+    position: relative;
+    object-fit: cover;
+}
+.box_show_bill img{
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.aplace-on {
+    display: grid;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+.box_places {
+    display: grid;
+    gap: 1rem;
+}
+
+
+/* update status */
+.aplace-on form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+}
+
+.aplace-on form .status{
+    width: 80%;
+    display: grid;
+    gap: 1rem;
+}
+
+.aplace-on form .btn{
+    width: 20%;
+    justify-content: right;
+}
+
+.aplace-on form .status .url{
+    width: 80%;
+    display: flex;
+    gap: 4px;
+}
+
+.status .url button{
+    border-radius: 5px;
+    background: rgba(255, 79, 22, 0.92);
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    padding: 0.4rem 1.5rem;
+    cursor: pointer;
+}
+
+.aplace-on form .status .url label{
+    width: 30%;
+    display: flex;
+}
+
+.aplace-on form .status .url input{
+    width: 70%;
+    border-bottom: solid #000 1px;
+    padding: 3px;
+}
+
+.aplace_form_button {
+    border-radius: 8px;
+    width: 150px;
+    height: 42px;
+    background: rgba(255, 79, 22, 0.92);
+    color: #fff;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+.image_bill {
+    width: 150px;
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
+    margin-left: 1.5rem;
+}
+
+.image_bill img {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.popup_image_bill{
+    position: absolute;
+    top: 10px;
+    left: 155px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 3px 3px 0 3px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.background_addproductpopup_bill {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #00000036;
+    z-index: 999;
+}
+
+.box_choose_bill {
+    position: absolute;
+    color: white;
+    top: 21.5%;
+    left: 32.5%;
+    padding: 5rem 3rem;
+    background-color: #00000089;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  #abill {
+    width: 90%;
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #abill {
+    width: 95%;
+    left: 5%;
+    margin-top: 4rem;
+  }
+
+  .abill-detial {
+    padding: 15px 20px 30px 20px;
+  }
+
+  .aguopoidHead {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container_Order_Bill {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .image_bill {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .aplace-on form .status {
+    flex-direction: column;
+  }
+
+  .aplace-on form .status .url input {
+    width: 100%;
+  }
+}

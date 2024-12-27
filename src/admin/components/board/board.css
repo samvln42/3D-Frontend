@@ -1,0 +1,343 @@
+/* Board */
+body {
+    background-color: #f5f5f53f;
+}
+
+.boxspentainer{
+    height: 10vh;
+}
+
+.board{
+    padding: 2rem;
+    width: 84%;
+    overflow: hidden;
+    margin: auto;
+    margin-left: 15%;
+    position: relative;
+}
+
+/* manage and target */
+.containerBox_db {
+    display: grid;
+    justify-content: center;
+    width: 877px;
+    height: 448px;
+    border-radius: 20px;
+    border: 1px solid #F8F9FA;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.50);
+}
+
+.containerBox_db .contentBox_db {
+    display: flex;
+}
+
+/* manage */
+.board .manage-target .manage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.board .manage-target .manage .menu-box {
+    display: grid;
+    width: 180px;
+    height: 184px;
+    text-align: center;
+    align-items: center;
+    margin: 0 0.2rem;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #eee;
+
+}
+.board .manage-target .manage .menu-boxs {
+    display: grid;
+    width: 180px;
+    height: 184px;
+    text-align: center;
+    align-items: center;
+    margin: 0 0.2rem;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #eee;
+
+}
+
+.board .manage-target .manage .menu-box div {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    gap: 1rem;
+}
+
+.board .manage-target .manage .menu-box .iconGad {
+    color: #FFF;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 100px;
+}
+.board .manage-target .manage .box_history .iconGads {
+    color: #FFF;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 100px;
+}
+
+.board .manage-target .manage .menu-box .gone1 {
+    background-color: #737791;
+}
+
+.board .manage-target .manage .menu-box .gone2 {
+    background-color: #FF947A;
+}
+.board .manage-target .manage .box_history .gone22 {
+    background-color: #7a95ffde;
+}
+
+.board .manage-target .manage .menu-box .gone3 {
+    background-color: #3CD856;
+}
+
+.board .manage-target .manage .menu-box .gone4 {
+    background-color: #BF83FF;
+}
+
+.board .manage-target .manage .one {
+    background-color: #FFE2E5;
+}
+
+.contentBox_db .menu-box .txtcol {
+    color: #4079ED;
+}
+
+.board .manage-target .manage .two {
+    background-color: #FFF4DE;
+}
+
+.board .manage-target .manage .three {
+    background-color: #DCFCE7;
+}
+
+.board .manage-target .manage .four {
+    background-color: #F3E8FF;
+}
+
+/* Target */
+.board .manage-target .target {
+    padding: 20px 20px 20px 20px;
+    width: 450px;
+    height: 351px;
+    border-radius: 20px;
+    border: 1px solid #F8F9FA;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.50);
+}
+
+/* ========= Sales ===========*/
+.box_sales{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.boxfiltermonth {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.filter_month {
+    font-size: 16px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.box_sales_quantity{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 10px 10px;
+}
+.txtBoxmonth h3{
+    text-align: center;
+    padding: 10px;
+}
+.txt_history{
+    font-size: 18px;
+}
+
+.box_history{
+    display: grid;
+    width: 180px;
+    height: 184px;
+    text-align: center;
+    align-items: center;
+    margin: 0 8rem;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    background: #5575f42f;
+}
+
+/* Products and visit */
+.products-visit {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.products-visit .products {
+    width: 1240px;
+    height: 351px;
+    border-radius: 20px;
+    border: 1px solid #F8F9FA;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.50);
+    padding: 23px 26px;
+}
+
+.products-visit .products .item_guopBox {
+    margin-top: 1rem;
+    display: grid;
+    gap: 2rem;
+}
+
+
+/* Products */
+.products-visit .products .items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.products-visit .products .items h4 {
+    color: #ABB2B9;
+}
+
+.products-visit .products .items:last-child {
+    border: none;
+}
+
+.sales_persian {
+    padding: 2px 7px;
+    border-radius: 8px;
+}
+
+.products-visit .products .items .sales_an1 {
+    color: #0095FF;
+    border: 1px solid #0095FF;
+    background: var(--colors-light-blue-50, #F0F9FF);
+}
+
+.products-visit .products .items .sales_an2 {
+    color: #00E58F;
+    border: 1px solid #00E58F;
+    background: var(--colors-green-50, #F0FDF4);
+}
+
+.products-visit .products .items .sales_an3 {
+    color: #884DFF;
+    border: 1px solid #884DFF;
+    background: var(--supporting-color-violet-shade, #FBF1FF);
+}
+
+.products-visit .products .items .sales_an4 {
+    color: #FF8900;
+    border: 1px solid #FF8900;
+    background: var(--supporting-color-yellow-shade, #FEF6E6);
+}
+
+/* Visit */
+.products-visit .visit {
+    padding: 24px 29px;
+    width: 510px;
+    height: 351px;
+    border-radius: 20px;
+    border: 1px solid #F8F9FA;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.50);
+}
+
+.products-visit .visit .visitor-graph {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    padding: 3rem;
+}
+
+.products-visit .visit .detial {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5rem;
+}
+
+.products-visit .visit .detial span {
+    display: flex;
+    align-items: center;
+}
+
+.products-visit .visit .detial .blue {
+    width: 10px;
+    height: 10px;
+    background-color: #0017FE;
+    margin-right: 0.3rem;
+}
+
+.products-visit .visit .detial .red {
+    width: 10px;
+    height: 10px;
+    background-color: #FE0000;
+    margin-right: 0.3rem;
+}
+
+.products-visit .visit .detial .green {
+    width: 10px;
+    height: 10px;
+    background-color: #28B463;
+    margin-right: 0.3rem;
+}
+
+@media screen and (max-width: 1250px) {
+    .board{
+        padding:  1rem 3rem;
+        display: inline-block;
+        max-width: 80%;
+    }
+} 
+
+@media screen and (max-width: 992px) {
+  .containerBox_db {
+    width: 100%;
+    height: auto;
+  }
+
+  .board .manage-target .manage {
+    grid-template-columns: 1fr;
+  }
+
+  .board .manage-target .manage .menu-box,
+  .board .manage-target .manage .menu-boxs {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .products-visit .visit {
+    width: 100%;
+    height: auto;
+  }
+
+  .products-visit .visit .detial {
+    margin: 0 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+} 

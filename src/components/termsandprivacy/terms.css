@@ -1,0 +1,45 @@
+
+.box_terms {
+    width: 80%;
+    margin: auto;
+    padding: 50px 0;
+    text-align: center;
+}
+.container_terms{
+    width: 50%;
+    margin: auto;
+    margin-top: 1.5rem;
+    font-size: 18px;
+    background: #fcfbfb;
+    border-radius: 20px;
+}
+.container_terms p{
+    text-align: start;
+    padding: 30px 30px 30px 30px;
+}
+.box_iconBack_terms{
+    margin-right: 35rem;
+}
+#iconBack_terms{
+    width: 30px;
+    height: 30px;
+}
+
+
+/* ============== Responsive =============== */
+
+@media (max-width: 768px) {
+    .box_terms {
+      width: 100%;
+    }
+    .container_terms{
+        width: 95%;
+        max-width: none;
+    }
+   
+    .box_iconBack_terms {
+        margin-left: 2.5rem;
+    }
+    
+}
+

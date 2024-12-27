@@ -1,0 +1,269 @@
+
+
+
+.box_container_login2 input,
+.box_container_login2 button {
+  width: 100%;
+  padding: 1rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--gray);
+}
+
+.box_container_login2 button {
+  background-color: var(--orange);
+  cursor: pointer;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
+.box_container_login2 input:focus {
+  outline: none;
+}
+
+
+.google-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray);
+  border-radius: 14px;
+  padding: 1rem 3rem;
+  width: 100%;
+}
+
+.google-login svg {
+    height: 6vh;
+
+}
+
+
+
+/* ============== body box_container_login ============== */
+.box_container_login2 {
+  width: 80%;
+  position: relative;
+  border-radius: 1em;
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  transform: translate(15%, 20%);
+}
+
+
+.cover {
+  width: 400px;
+  height: 565px;
+  border-radius: 1em;
+  display: grid;
+  text-align: center;
+  justify-content: center;
+}
+
+.container_login_form {
+  border: 1px solid var(--blue);
+}
+
+
+
+.box_container_login_text {
+  color: rgba(0, 0, 0, 0.80);
+  font-family: Poppins;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  
+}
+.box_pleaselogin{
+  margin-top: 1px;
+  font-size: 17px;
+  color: #777;
+}
+
+.titol_email{
+  text-align: start;
+}
+
+.input {
+  width: 100%;
+  display: grid;
+  text-align: start;
+}
+.input input {
+  width: 100%;
+}
+
+.input_form {
+  width: 100%;
+  height: 58px;
+  /* margin: auto; */
+  border-radius: 15px;
+}
+
+.input_form {
+  padding: 20px 15px;
+}
+
+
+.forgot_password {
+  text-align: end;
+  font-size: 18px;
+  color: #777;
+}
+.findpassword{
+  margin-left: 0.5rem;
+}
+
+
+.google_btn img {
+  width: 30px;
+  height: 30px;
+}
+
+.google_btn p {
+  color: rgba(0, 0, 0, 0.60);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 18px;
+}
+
+.box_form {
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.box_form input {
+  width: 450px;
+  height: 58px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.40);
+}
+
+
+
+
+/* =============== Button Login with Google ============== */
+.google-login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray);
+  border-radius: 14px;
+  padding: 0.3rem 3rem;
+  width: 100%;
+}
+
+.box_dont{
+  font-size: 18px;
+  color: #777;
+  text-align: end;
+}
+.loginmoreLink{
+  color: #FF4F16;
+  margin-left: 0.5rem;
+}
+.google_account{
+  font-size: 18px;
+  margin-top: 1.5rem;
+  color: #777;
+}
+
+/* ============= Button Login ===============*/
+
+.loginbtn_login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_btn {
+  width: 600px;
+  height: 58px;
+  margin-top: -2rem;
+  background: #FF4F16;
+  color: #ffffff;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px;
+  font-size: 20px;
+}
+
+.login_btn:hover {
+  color: #FFF;
+}
+
+.boxAlartLogin{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: rgb(240, 91, 46);
+  width: 100%;
+  height: auto;
+  padding: 0 20px;
+  border-radius: 7px;
+}
+
+.iconAlert{
+  font-size: 35px;
+  color: #fff;
+}
+
+.txtalert_p{
+  color: #fff;
+}
+.iconAlert_canCel{
+  color: #fff;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.werwer{
+  position: absolute;
+  top: 4%;
+}
+
+/*============== Responsive =====================*/
+@media (max-width: 768px) {
+  .box_container_login2 {
+    width: 80%;
+  }
+  
+
+  .cover {
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+
+  .input {
+    width: 100%;
+    display: grid;
+  }
+  .input input {
+    width: 100%;
+  }
+
+  .box_form input {
+    width: 100%;
+  }
+
+  .login_btn{
+    width: 100%;
+  }
+  .google-login {
+    border: none;
+    
+  }
+  .box_dont{
+    text-align: center;
+  }
+  .forgot_password{
+    text-align: center;
+  }
+}

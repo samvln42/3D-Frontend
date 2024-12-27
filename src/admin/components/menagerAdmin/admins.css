@@ -1,0 +1,182 @@
+
+.container_box_users{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 30px 20px 20px 20px;
+    background: #FFF;
+    box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.15);
+    border-radius: 10px;
+}
+
+.box_add_admin{
+    padding: 0 2rem;
+}
+.btn_addadmin{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #15c65c;
+}
+#icon_add_admin{
+    width: 25px;
+    height: 25px;
+}
+
+
+/* ============ box_users_admin =========== */
+
+.box_users_admin{
+    width: 94%;
+    height: 90px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: 20px 30px 20px 30px;
+    cursor: pointer;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.box_admin_text{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.box_admin_text img{
+    width: 70px;
+    height: 70px;
+}
+
+.container_admin_icon{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+#icon_edit_delete{
+    width: 25px;
+    height: 25px;
+    color: #FFF;
+}
+.btn_edit{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #27A7EF;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+.btn_delete{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FA442C;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+
+/* ============ box_next_admin =========== */
+
+
+.box_next_admin{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    border: none;
+    bottom: 0;
+}
+.box_prev_next_admin{
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #FA442C;
+}
+
+.box_prev_nexts_admin{
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #27A7EF;
+}
+
+#box_prev_next_icon{
+    width: 20px;
+    height: 20px;
+}
+
+.num_admin{
+    width: 60px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #444;
+}
+.box_next_admin p{
+    font-size: 16px;
+}
+
+.box_num_admin{
+    display: flex;
+    gap: 0.5rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconcoloredite{
+    color: #FFF;
+}
+
+.update{
+    border: none;
+}
+
+/*=======img========*/
+#image {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    margin-left: 4.5rem;
+    overflow: hidden;
+    color: #fff;
+}
+
+
+/* ================ Responsive ==================*/

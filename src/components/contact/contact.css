@@ -1,0 +1,27 @@
+.contaner_contact{
+    width: 60%;
+    margin: auto 0;
+    margin-top: 7rem;
+    text-align: center;
+    
+}
+.container_body{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    padding: 20px 20px;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+}
+.container_body p{
+    text-align: center;
+}
+
+@media screen and (max-width: 431px) {
+   .contaner_contact{
+    width: 100%;
+    display: grid;
+    gap: rem;
+   } 
+}

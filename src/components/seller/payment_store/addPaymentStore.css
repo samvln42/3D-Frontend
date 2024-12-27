@@ -1,0 +1,21 @@
+.add_payment_box{
+    margin: 10px 0;
+    position: relative;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+    border-radius: 10px;
+    padding: 30px;
+}
+.box_container_review1{
+    width: 60%;
+    margin: auto;
+}
+.inputproduct_box p{
+    margin-bottom: 10px;
+}
+ 
+@media only screen and (max-width: 480px) {
+    .box_container_review1{
+        width: 100%;
+        margin-top: 1rem;
+    }
+}

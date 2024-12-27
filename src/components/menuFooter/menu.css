@@ -1,0 +1,143 @@
+/*---------- Footer For PC ----------*/
+.footerBox {
+    width: 100%;
+    margin-top: 7rem;
+    box-shadow: -10px -0.5px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer_Container {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footconentBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.txt_footHead {
+    color: #444;
+    padding-bottom: 15px;
+}
+
+.txh3 {
+    text-align: left;
+}
+
+.txt_pFoot {
+    padding: 5px 0;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.txt_pFoot:hover {
+    color: #FF4F16;
+}
+
+
+.foot_contentItem,
+.guop_btndownl {
+    display: flex;
+    gap: 1rem;
+}
+
+.guop_btndownl {
+    flex-direction: column;
+}
+
+.footLink {
+    background-color: #FF4F16;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 7px;
+}
+
+.lastFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    gap: 5px;
+    font-size: 15px;
+    padding: 10px 0;
+}
+
+.hrfoo {
+    border: 0.5px solid #dddce18f;
+}
+
+.iconMenuSpan{
+    font-size: 23px;
+    color: #444;
+}
+
+/*---------- Menu For Mobile ----------*/
+.menubar {
+    display: none;
+}
+
+@media screen and (max-width: 820px) {
+    .footerBox {
+        width: 100%;
+    }
+
+    .footer_Container {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .footLink {
+        background-color: #FF4F16;
+        color: #fff;
+        padding: 10px 0;
+        border-radius: 7px;
+        font-size: 15px;
+        width: 120px;
+    }
+
+    .foot_contentItem {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 431px) {
+    .footerBox {
+        display: none;
+    }
+
+    .menubar {
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 20px;
+        border-radius: 15px 15px 0px 0px;
+        background: #FFF;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+    }
+    .menubar a{
+        color: black;
+    }
+    .menubar .active{
+        color: #FF4F16;
+    }
+
+    .box-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bx-user {
+        color: #FF4F16;
+    }
+}

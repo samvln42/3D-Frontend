@@ -1,0 +1,238 @@
+.store-container {
+  position: relative;
+  display: flex;
+  gap: 25px;
+  padding: 30px;
+  margin: 0 auto;
+  /* margin-top: 100px; */
+  width: 70%;
+  max-width: 1200px;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  align-items: center;
+  cursor: grab;
+  
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.store-container:active {
+  cursor: grabbing;
+}
+
+.store-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.store-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.store-circle span {
+  color: #333;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.store-container::after {
+  content: '';
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 100px;
+  height: 140px;
+  background: linear-gradient(to right, transparent, white 90%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scroll-indicator-container {
+  position: absolute;
+  right: 90px;
+  top: 22%;
+  width: 100px;
+}
+
+.scroll-indicator {
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 68, 68, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: bounce 1.5s infinite;
+}
+
+.scroll-indicator::after {
+  content: '→';
+  color: #ff4444;
+  font-size: 20px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-50%) translateX(-10px); }
+}
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  .store-container {
+    width: 70%;
+    gap: 25px;
+  }
+
+  .store-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .store-circle span {
+    font-size: 0.9rem;
+  }
+}
+
+/* Desktop (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .store-container {
+    width: 80%;
+    gap: 20px;
+  }
+
+  .store-circle {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+/* Tablet (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .store-container {
+    width: 85%;
+    gap: 18px;
+    margin-top: 80px;
+  }
+
+  .store-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .store-circle span {
+    font-size: 0.85rem;
+  }
+
+  .scroll-indicator {
+    right: 15px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Large Mobile (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .store-container {
+    width: 90%;
+    gap: 15px;
+    margin-top: 60px;
+    padding: 20px;
+  }
+
+  .store-circle {
+    width: 65px;
+    height: 65px;
+  }
+
+  .store-circle span {
+    font-size: 0.8rem;
+  }
+
+  .scroll-indicator {
+    right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .store-container::after {
+    width: 60px;
+  }
+}
+
+/* Small Mobile (575px and below) */
+@media (max-width: 575px) {
+  .store-container {
+    width: 95%;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .store-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .store-circle span {
+    font-size: 0.75rem;
+  }
+
+  .scroll-indicator {
+    right: 5px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .scroll-indicator::after {
+    font-size: 16px;
+  }
+
+  .store-container::after {
+    width: 50px;
+  }
+}
+
+/* Fix for very small devices */
+@media (max-width: 320px) {
+  .store-container {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .store-circle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .store-circle span {
+    font-size: 0.7rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .store-container {
+    margin-top: 40px;
+  }
+}

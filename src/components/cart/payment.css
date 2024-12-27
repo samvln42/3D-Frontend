@@ -1,0 +1,124 @@
+.guopBoxPayment_container {
+    width: 60%;
+    margin: 6rem auto;
+    background-color: #fff;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.h2_boxPayment {
+    text-align: center;
+    padding: 20px;
+}
+
+.adress_payment_content {
+    padding: 0 30px;
+    display: grid;
+    gap: 1rem;
+}
+
+.p_details {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 20px 0;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+.iconnn_copy_account {
+    cursor: pointer;
+    font-size: 23px;
+}
+
+.address {
+    background-color: #FA442C;
+    font-size: 1.3rem;
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px 4px 0 0;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.details_ProductInPayMentBox {
+    padding: 20px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+}
+
+.details_ProductInPayMentBox ul li {
+    list-style: none;
+}
+
+.detailsProduct_li {
+    display: grid;
+    gap: 10px;
+}
+
+.boxaccount_number {
+    padding: 10px;
+}
+
+.boxaccount_number_p {
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.box_transfer_p_line {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.boxaccount_number {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.image_confirm_transfer {
+    display: flex;
+    gap: 1rem;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+}
+
+.save {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 15px 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    background: #FF4F16;
+    box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media screen and (max-width: 820px) {}
+
+@media screen and (max-width: 431px) {
+    .guopBoxPayment_container{
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .guopBoxPayment_container{
+        width: 90%;
+        margin-left: -1rem;
+    }
+}
