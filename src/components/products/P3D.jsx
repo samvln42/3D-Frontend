@@ -15,6 +15,9 @@ const P3D = () => {
     const [storeId, setStoreId] = useState(null);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+    const [square, setSquare] = useState([]);
+    const [hoveredArea, setHoveredArea] = useState(null);
+
     // canvasRef
     const canvasRef = useRef(null);
     const canvasContainerRef = useRef(null);
@@ -24,65 +27,44 @@ const P3D = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [clickedPoint, setClickedPoint] = useState(null);
 
-    const [mousePosition, setMousePosition] = useState(null);
+    // const [mousePosition, setMousePosition] = useState(null);
     const [stocked, setStocked] = useState([]);
     const [currentImageId, setCurrentImageId] = useState(null);
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [is3DMode, setIs3DMode] = useState(false);
-    const [productsArea, setProductsArea] = useState([]);
 
-    // Handle mouse move
+    useEffect(() => {
+        const coordinates = products.map(item => ({
+            x_axis: item.x_axis,
+            y_axis: item.y_axis
+        }));
+        
+        setSquare(coordinates);
+    }, [products]);
+
+    // Handle mouse move for square
     const handleMouseMove = useCallback((e) => {
         if (!stockedImage || stockedImage.length === 0) return;
+        
         const canvas = canvasRef.current;
         const rect = canvas.getBoundingClientRect();
-
+    
         const scaleX = canvas.width / rect.width;
         const scaleY = canvas.height / rect.height;
-
+    
         const x = (e.clientX - rect.left) * scaleX;
         const y = (e.clientY - rect.top) * scaleY;
-
-        // ใช้ RAF แทน debounce
-        requestAnimationFrame(() => {
-            setMousePosition({ x, y });
+    
+        // ตรวจสอบว่า mouse อยู่ในพื้นที่ไหน
+        const hoveredIndex = square.findIndex(area => {
+            return x >= area.x_axis[0] && 
+                   x <= area.x_axis[1] && 
+                   y >= area.y_axis[0] && 
+                   y <= area.y_axis[1];
         });
-    }, [stockedImage]);
-
-    // Get products area
-    useEffect(() => {
-        if (!mousePosition || !currentImageId) return;
-
-        const controller = new AbortController();
-        const signal = controller.signal;
-
-        // ใช้ throttle แทน debounce สำหรับการเรียก API
-        const timeoutId = setTimeout(async () => {
-            try {
-                const response = await axios.get(
-                    `${import.meta.env.VITE_API}/store/stocked-image/${currentImageId}/products/area/?start_x=${mousePosition.x}&end_x=${mousePosition.x}&start_y=${mousePosition.y}&end_y=${mousePosition.y}`,
-                    { signal }
-                );
-                
-                if (response.data.length > 0) {
-                    requestAnimationFrame(() => {
-                        setProductsArea(response.data[0]);
-                    });
-                } else {
-                    setProductsArea(null);
-                }
-            } catch (error) {
-                if (!axios.isCancel(error)) {
-                    console.log("Error fetching product data:", error);
-                }
-            }
-        }, 8); // ลดเวลา throttle ลงเหลือ 8ms
-
-        return () => {
-            clearTimeout(timeoutId);
-            controller.abort();
-        };
-    }, [mousePosition, currentImageId]);
+    
+        setHoveredArea(hoveredIndex !== -1 ? hoveredIndex : null);
+    }, [stockedImage, square]);
 
     // Handle close popup
     const handleClosePopup = () => {
@@ -129,28 +111,24 @@ const P3D = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        // เพิ่มการตรวจสอบความสมบูรณ์ของ productsArea
-        if (productsArea && 
-            Array.isArray(productsArea.x_axis) && 
-            Array.isArray(productsArea.y_axis) && 
-            productsArea.x_axis.length >= 2 && 
-            productsArea.y_axis.length >= 2) {
-            
-            ctx.beginPath();
-            ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
-            ctx.lineWidth = 2;
-            
-            const width = productsArea.x_axis[1] - productsArea.x_axis[0];
-            const height = productsArea.y_axis[1] - productsArea.y_axis[0];
-            
-            ctx.strokeRect(
-                productsArea.x_axis[0],
-                productsArea.y_axis[0],
-                width,
-                height
-            );
-        }
-    }, [stockedImage, productsArea]);
+    // วาดเฉพาะพื้นที่ที่กำลัง hover
+    if (hoveredArea !== null && square[hoveredArea]) {
+        const area = square[hoveredArea];
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
+        ctx.lineWidth = 2;
+        
+        const width = area.x_axis[1] - area.x_axis[0];
+        const height = area.y_axis[1] - area.y_axis[0];
+        
+        ctx.strokeRect(
+            area.x_axis[0],
+            area.y_axis[0],
+            width,
+            height
+        );
+    }
+    }, [stockedImage, square, hoveredArea]);
 
     // Load image
     useEffect(() => {
@@ -168,8 +146,7 @@ const P3D = () => {
 
     // Handle mouse leave
     const handleMouseLeave = () => {
-        setMousePosition(null);
-        setProductsArea([]);
+        setHoveredArea(null);
     }
     // Handle canvas click
     const handleCanvasClick = useCallback((e) => {
@@ -200,7 +177,7 @@ const P3D = () => {
         }
         setIsPopupOpen(false);
         setClickedPoint(null);
-        setCurrentImageId(null);
+        setItemPopup(null); 
     }, [stockedImage]);
 
     // Previous image
@@ -214,7 +191,7 @@ const P3D = () => {
         }
         setIsPopupOpen(false);
         setClickedPoint(null);
-        setCurrentImageId(null);
+        setItemPopup(null); 
     }, [stockedImage]);
 
     // Fullscreen

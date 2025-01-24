@@ -14,11 +14,11 @@ const Products = (
         clickedPointY,
         setItemPopup,
         setIsPopupOpen,
-        is3DMode
+        is3DMode,
     }
 ) => {
 
-    // Get goods
+    // Get goods by stocked-image
     useEffect(() => {
         let url = '';
 
@@ -33,7 +33,7 @@ const Products = (
 
 
         if (!url) return;
-        
+
 
         let config = {
             method: "get",
@@ -58,7 +58,7 @@ const Products = (
             });
     }, [currentImageId, storeId, is3DMode]);
 
-    // Get products by stocked-image
+    // Get products by stocked-image area
     useEffect(() => {
         if (!currentImageId || !clickedPoint) return;
 
