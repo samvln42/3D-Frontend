@@ -35,10 +35,10 @@ const AddPoint = () => {
     setImages([...images, { position: "", image: "" }]);
   };
 
-  const handleRemoveImage = (index) => {
-    const updatedImages = images.filter((_, i) => i !== index);
-    setImages(updatedImages);
-  };
+  // const handleRemoveImage = (index) => {
+  //   const updatedImages = images.filter((_, i) => i !== index);
+  //   setImages(updatedImages);
+  // };
 
   const handlePositionChange = (e, index) => {
     const updatedImages = [...images];
