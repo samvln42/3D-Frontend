@@ -116,23 +116,36 @@ const Product_Admin = () => {
 
   // Get mouse position
   const getMousePosition = useCallback((e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+    const canvas = canvasRef.current;
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    
     return {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY
     };
   }, []);
 
   // Draw canvas
   const drawCanvas = useCallback(() => {
-
     if (!stockedImage || stockedImage.length === 0) return;
+    
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     const img = imageRef.current;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Set canvas size to match display size
+    const displayWidth = canvas.clientWidth;
+    const displayHeight = canvas.clientHeight;
+    
+    // Only update if size has changed
+    if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+      canvas.width = displayWidth;
+      canvas.height = displayHeight;
+    }
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
     if (isDrawing) {
@@ -1315,110 +1328,6 @@ const Product_Admin = () => {
                         </div>
                       </div>
                     )}
-
-                    {/* 
-                    {isConfirmationPoint && (
-                      <div className="background_addproductpopup_box">
-                        <div className="hover_addproductpopup_box">
-                          <div className="box_input">
-                            <p>Edit point name</p>
-                            <input
-                              type="text"
-                              placeholder="Point name..."
-                              className="input_of_txtAddproduct"
-                              onChange={(e) => {
-                                set_point_data(e.target.value);
-                              }}
-                            />
-                          </div>
-                          <div className="btn_foasdf">
-                            <button
-                              className="btn_cancel btn_addproducttxt_popup"
-                              onClick={closeConfirmationPoint}
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              className="btn_confirm btn_addproducttxt_popup"
-                              onClick={() => Updatepoint()}
-                            >
-                              Update
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    )} */}
-
-                    {/* {isConfirmationX_axis && (
-                      <div className="background_addproductpopup_box">
-                        <div className="hover_addproductpopup_box">
-                          <div className="box_input">
-                            <p>Edit X_axis</p>
-                            <input
-                              type="text"
-                              placeholder="X_axis..."
-                              className="input_of_txtAddproduct"
-                              value={data}
-                              onChange={(e) => {
-                                set_data(e.target.value);
-                              }}
-                            />
-                          </div>
-                          <div className="btn_foasdf">
-                            <button
-                              className="btn_cancel btn_addproducttxt_popup"
-                              onClick={closeConfirmationX_axis}
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              className="btn_confirm btn_addproducttxt_popup"
-                              onClick={() => {
-                                ChangeProductX_axis();
-                              }}
-                            >
-                              Update
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    )} */}
-
-                    {/* {isUpdatePopup && (
-                      <div className="background_addproductpopup_box">
-                        <div className="hover_addproductpopup_box">
-                          <div className="box_input">
-                            <p>Edit Y_axis</p>
-                            <input
-                              type="text"
-                              placeholder="Y_axis..."
-                              className="input_of_txtAddproduct"
-                              value={data}
-                              onChange={(e) => {
-                                set_data(e.target.value);
-                              }}
-                            />
-                          </div>
-                          <div className="btn_foasdf">
-                            <button
-                              className="btn_cancel btn_addproducttxt_popup"
-                              onClick={closeConfirmationY_axis}
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              className="btn_confirm btn_addproducttxt_popup"
-                              onClick={() => {
-                                ChangeProductY_axis();
-                              }}
-                            >
-                              Update
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    )} */}
-
                     <div className="box_icon_MdOutlineEdit">
                       <li>
                         Size: {product.sizes ? product.sizes.join(", ") : ""}
