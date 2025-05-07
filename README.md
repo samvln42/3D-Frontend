@@ -9,3 +9,4 @@ Currently, two official plugins are available:
 # web3D_frontend
 # s100stores_frontend
 # 3D-Frontend
+# 3D-Frontend
