@@ -2,120 +2,111 @@ import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 import './store.css';
 
-const Store = ({ handleStocked, setStocked, setStoreId }) => {
-
+const Store = ({ handleStocked, setStocked, setStoreId, storeId, adminId, setAdminId }) => {
     const [stores, setStores] = useState([]);
-
     const containerRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
-    const [showIndicator, setShowIndicator] = useState(true);
+    const isAdmin = stores.find(store => store.is_admin);
 
+    let id = '';
+    if (isAdmin) {
+        id = stores.find(store => store.is_admin);
+        setAdminId(id.id);
+    }
+
+    // Fetch stores with cleanup
     useEffect(() => {
-        let config = {
-            method: "get",
-            maxBodyLength: Infinity,
-
-            url: import.meta.env.VITE_API + "/store/stores/",
-            headers: {},
+        const controller = new AbortController();
+        
+        const fetchStores = async () => {
+            try {
+                const response = await axios.request({
+                    method: "get",
+                    url: import.meta.env.VITE_API + "/store/stores/",
+                    headers: {},
+                    signal: controller.signal
+                });
+                setStores(response.data);
+            } catch (error) {
+                if (!axios.isCancel(error)) {
+                    console.error("Error fetching stores:", error);
+                }
+            }
         };
 
-        axios
-            .request(config)
-            .then((response) => {
-                setStores(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        fetchStores();
+        return () => controller.abort();
     }, []);
 
-    // Get stocked
-    const handleGetStocked = (id) => {
-        setStoreId(id);
-        const requestOptions = {
-            method: "GET",
-            redirect: "follow"
-        };
-
-        fetch(import.meta.env.VITE_API + `/store/${id}/stocked`, requestOptions)
-            .then((response) => response.json())
-            .then((result) => {
+    // Get stocked with cleanup
+    useEffect(() => {
+        const controller = new AbortController();
+        
+        const fetchStocked = async () => {
+            try {
+                const response = await fetch(
+                    `${import.meta.env.VITE_API}/store/${storeId || adminId}/stocked`,
+                    {
+                        method: "GET",
+                        signal: controller.signal
+                    }
+                );
+                const result = await response.json();
                 setStocked(result);
                 if (result && result.length > 0) {
                     handleStocked(result[0].id);
                 }
-            })
-            .catch((error) => console.error(error));
-    }
-
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.pageX - containerRef.current.offsetLeft);
-        setScrollLeft(containerRef.current.scrollLeft);
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - containerRef.current.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll speed multiplier
-        containerRef.current.scrollLeft = scrollLeft - walk;
-    };
-
-    // Check if scrolled to end
-    const handleScroll = () => {
-        if (containerRef.current) {
-            const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-            const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 50;
-            setShowIndicator(!isAtEnd);
-        }
-    };
-
-    useEffect(() => {
-        const container = containerRef.current;
-        if (container) {
-            container.addEventListener('scroll', handleScroll);
-            // Check initially
-            handleScroll();
-        }
-        return () => {
-            if (container) {
-                container.removeEventListener('scroll', handleScroll);
+            } catch (error) {
+                if (error.name !== 'AbortError') {
+                    console.error("Error fetching stocked:", error);
+                }
             }
         };
-    }, []);
+
+        if (storeId || adminId) {
+            fetchStocked();
+        }
+        
+        return () => controller.abort();
+    }, [storeId, adminId]);
+
+    // Handle store selection
+    const handleGetStocked = (id) => {
+        setStoreId(id);
+    };
+
+    // Scroll to end
+    const handleScrollToEnd = () => {
+        if (containerRef.current) {
+            containerRef.current.scrollLeft = containerRef.current.scrollWidth;
+        }
+    };
+
+    let activeStore = '';
+    let activeAdmin = adminId;
+
+    if(storeId){
+        activeStore = storeId;
+        activeAdmin = "";
+    }
 
     return (
-        <>
-            <div
-                className="store-container"
-                ref={containerRef}
-                onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseLeave}
-                onMouseMove={handleMouseMove}
-            >
+        <div className="list-container">
+            <div className="store-container" ref={containerRef}>
                 <p>Stores</p>
                 {stores.map(store => (
-                    <div key={store.id} className="store-circle" onClick={() => handleGetStocked(store.id)}>
-                        <span>{store.name}</span>
+                    <div 
+                        key={store.id} 
+                        className={`store-circle ${store.id === activeStore || store.id === activeAdmin ? 'active' : ''}`}
+                        onClick={() => handleGetStocked(store.id)}
+                    >
+                        <span><h5>{store.name}</h5></span>
                     </div>
                 ))}
             </div>
-            <div className="scroll-indicator-container">
-                {showIndicator && <div className="scroll-indicator" />}
-            </div>
-        </>
+            <button className="scroll-to-end-button" onClick={handleScrollToEnd}>
+                <i className="arrow-right">→</i>
+            </button>
+        </div>
     );
 };
 

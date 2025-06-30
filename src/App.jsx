@@ -82,10 +82,14 @@ import StoreDetail from "./admin/components/storeMenagement/StoreDetail";
 import UpdateStore from "./admin/components/storeMenagement/UpdateStore";
 
 import P3D from "./components/products/P3D";
+import PostProduct from "./admin/components/products/PostProduct";
 
+//------ Panorama ------//
+import AddPanorama from "./admin/components/panorama/AddPanorama";
+import Panorama from "./admin/components/panorama/panorama";
 function App() {
   return (
-    <CartProvider>
+    <CartProvider >
       <Router>
         <Routes>
           {/* --------- Login-Signup page---------- */}
@@ -166,6 +170,11 @@ function App() {
           <Route path="/addcategory-admin" Component={Addcategory} />
           <Route path="/add_point" Component={AddPoint} />
           <Route path="/delete_point" Component={DeletePoint} />
+          <Route path="/post-product" Component={PostProduct} />
+
+          {/* --------- Panorama ---------- */}
+          <Route path="/add-panorama" Component={AddPanorama} />
+          <Route path="/panorama" Component={Panorama} />
         </Routes>
       </Router>
     </CartProvider>

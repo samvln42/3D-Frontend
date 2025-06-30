@@ -299,13 +299,13 @@ const Signup2 = () => {
                 onChange={onChange}
                 required
               />
-              <input
+              {/* <input
                 type="text"
                 name="sub_address"
                 placeholder="Detailed address (optional)"
                 value={data.sub_address}
                 onChange={onChange}
-              />
+              /> */}
               <input
                 type="text"
                 name="phone"
@@ -313,13 +313,13 @@ const Signup2 = () => {
                 value={data.phone}
                 onChange={onChange}
               />
-              <input
+              {/* <input
                 type="text"
                 name="company_number"
                 placeholder="Business registration number (optional)"
                 value={data.company_number}
                 onChange={onChange}
-              />
+              /> */}
 
               <textarea
                 className="box_text"

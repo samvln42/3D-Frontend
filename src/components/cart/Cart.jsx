@@ -6,37 +6,40 @@ import { AiOutlineDelete } from "react-icons/ai";
 import "./cart.css";
 import axios from "axios";
 import Payment from "./Payment";
+// import istockphoto from "../../img/istockphoto.jpg";
+
 
 const Cart = () => {
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("user");
+  // Get user_id from localStorage
+  const user_id = user ? JSON.parse(user).user_id : null;
   const [store_id, set_store_id] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [show_payment, set_show_payment] = useState(false);
   const navigate = useNavigate();
-  const [category, set_category] = useState(1);
-  const [products_list, set_products_list] = useState([]);
+  // const [products_list, set_products_list] = useState([]);
 
 
-  useEffect(() => {
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + `/store/?category=${category}`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+  // useEffect(() => {
+  //   let config = {
+  //     method: "get",
+  //     maxBodyLength: Infinity,
+  //     url: import.meta.env.VITE_API + `/store/?store_id=${store_id}`,
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
 
-    axios
-      .request(config)
-      .then((response) => {
-        set_products_list(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [category]);
+  //   axios
+  //     .request(config)
+  //     .then((response) => {
+  //       set_products_list(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, [store_id]);
 
   function StarAVG(value) {
     let star_avg = (value / 5) * 100;
@@ -44,11 +47,6 @@ const Cart = () => {
       star_avg = 100;
     }
     return star_avg;
-  }
-
-  var user_id = null;
-  if (localStorage.getItem("user")) {
-    user_id = JSON.parse(window.localStorage.getItem("user")).user_id;
   }
 
   const [cart, setCart] = useState(() => {
@@ -94,6 +92,9 @@ const Cart = () => {
 
   const handlePayment = (store_name) => {
     const storeItems = cart.filter((item) => item.store_name === store_name);
+    if (storeItems.length === 0) {
+      return;
+    }
     setCartItems(storeItems);
     set_store_id(storeItems[0].store_id);
     set_show_payment(true);
@@ -120,11 +121,6 @@ const Cart = () => {
       0
     );
   };
-
-  var user_id = null;
-  if (localStorage.getItem("user")) {
-    user_id = JSON.parse(window.localStorage.getItem("user")).user_id;
-  }
 
   useEffect(() => {
     let data = JSON.stringify({
@@ -191,7 +187,7 @@ const Cart = () => {
             </Link> */}
 
             {stores.length === 0 ? (
-              <p className="no-reviews-message">Your cart is emty</p>
+              <p className="no-reviews-message">Your cart is empty</p>
             ) : (
               <div>
                 {stores.map((store) => (
@@ -207,18 +203,17 @@ const Cart = () => {
                                 <img src={item.images} alt="" />
                                 <div className="box_item_text">
                                   <p>name: {item.name}</p>
-                                  <p>color: {item.color}</p>
-                                  <p>size: {item.size}</p>
-                                  <p>
-                                    price{": "} $
-                                    {parseFloat(item.price).toLocaleString(
+                                  {/* <p>color: {item.color}</p>
+                                  <p>size: {item.size}</p> */}
+                                  <p className="product-price">
+                                    price{": "} {parseFloat(item.price).toLocaleString(
                                       "en-US",
                                       {
                                         minimumFractionDigits: 0,
                                         maximumFractionDigits: 0,
                                         useGrouping: true,
                                       }
-                                    )}
+                                      )} 원
                                   </p>
                                 </div>
                                 <div className="box_icon_order">
@@ -282,7 +277,7 @@ const Cart = () => {
                         <hr />
                         <div className="box_item_total_text">
                           <p className="txt_Total">Total: </p>
-                          <p>${getTotalPriceForStore(store).toFixed(2)}</p>
+                          <p className="product-price">{getTotalPriceForStore(store).toFixed(2)} 원</p>
                         </div>
                         <div className="btn">
                           <button
@@ -304,7 +299,7 @@ const Cart = () => {
             <br />
             <br />
 
-            <h2 className="box_betavinOfob asd2">
+            {/* <h2 className="box_betavinOfob asd2">
               <span className="spennofStyle" />
               Shopping
             </h2>
@@ -314,7 +309,7 @@ const Cart = () => {
                   <div key={index} className="product-card">
                     <Link to={`/goods/${product.id}`} onClick={handleClick}>
                       <img
-                        src={product.image}
+                        src={product.image ? product.image : istockphoto}
                         alt={product.name}
                         className="product-image"
                       />
@@ -325,8 +320,8 @@ const Cart = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
+              </div> 
+             </div> */}
           </div>
           <Menu />
         </>
@@ -336,3 +331,4 @@ const Cart = () => {
 };
 
 export default Cart;
+

@@ -89,20 +89,22 @@ const OrderBill = () => {
   const ConfirmOrder = (e) => {
     e.preventDefault();
 
+    if (!order_list?.status) return;
+
     let data = "";
-    if (order_list.status == "Pending") {
+    if (order_list.status === "Pending") {
       data = JSON.stringify({
         status: "Processing",
       });
-    } else if (order_list.status == "Processing") {
+    } else if (order_list.status === "Processing") {
       data = JSON.stringify({
         status: "Shipped",
       });
-    } else if (order_list.status == "Shipped") {
+    } else if (order_list.status === "Shipped") {
       data = JSON.stringify({
         status: "Delivered",
       });
-    } else if (order_list.status == "Delivered") {
+    } else if (order_list.status === "Delivered") {
       data = JSON.stringify({
         status: "Delivered",
       });
@@ -125,25 +127,25 @@ const OrderBill = () => {
     axios
       .request(config)
       .then((response) => {
-        if (order_list.status == "Pending") {
+        if (order_list.status === "Pending") {
           MySwal.fire({
             text: "This order has been received.",
             icon: "success",
           });
           navigate("/order/processing");
-        } else if (order_list.status == "Processing") {
+        } else if (order_list.status === "Processing") {
           MySwal.fire({
             text: "This order has been processed",
             icon: "success",
           });
           navigate("/order/shipped");
-        } else if (order_list.status == "Shipped") {
+        } else if (order_list.status === "Shipped") {
           MySwal.fire({
             text: "This order has been shipped.",
             icon: "success",
           });
           navigate("/order/delivered");
-        } else if (order_list.status == "Delivered") {
+        } else if (order_list.status === "Delivered") {
           MySwal.fire({
             text: "This order has been delivered.",
             icon: "success",
@@ -278,8 +280,6 @@ const OrderBill = () => {
     }
   };
 
-  console.log("order bill: ", order_bill);
-  console.log("mainImageBill: ", mainImageBill);
   return (
     <>
       <AdminMenu />
@@ -295,8 +295,8 @@ const OrderBill = () => {
           </div>
           <div className="aguopoidHead">
             <div className="aidf">
-              <p>OrderID: {order_list.id}</p>
-              <p>User: {name || email}</p>
+              <p>OrderID: {order_list?.id}</p>
+              <p>User: {name || email || 'Loading...'}</p>
             </div>
           </div>
           <hr />
@@ -307,56 +307,58 @@ const OrderBill = () => {
                   <th>Product Name</th>
                   <th>Price</th>
                   <th>Amount</th>
-                  <th>Color</th>
-                  <th>Size</th>
+                  {/* <th>Color</th>
+                  <th>Size</th> */}
                 </tr>
               </thead>
-              {order_list.items &&
-                order_list.items.map((item) => (
-                  <tbody key={item.id}>
-                    <tr>
-                      <td>{item.product.name}</td>
-                      <td>
-                        $
-                        {parseFloat(item.price).toLocaleString("en-US", {
-                          minimumFractionDigits: 0,
-                          maximumFractionDigits: 0,
-                          useGrouping: true,
-                        })}
-                      </td>
-                      <td>{item.quantity}</td>
-                      <td>{item.color}</td>
-                      <td>{item.size}</td>
-                    </tr>
-                  </tbody>
-                ))}
+              <tbody>
+                {order_list?.items?.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item?.product?.name || 'N/A'}</td>
+                    <td>
+                      ${parseFloat(item?.price || 0).toLocaleString("en-US", {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                        useGrouping: true,
+                      })}
+                    </td>
+                    <td>{item?.quantity || 0}</td>
+                    {/* <td>{item?.color || 'N/A'}</td>
+                    <td>{item?.size || 'N/A'}</td> */}
+                  </tr>
+                )) || (
+                  <tr>
+                    <td colSpan="5">No items available</td>
+                  </tr>
+                )}
+              </tbody>
             </table>
           </div>
           <hr />
           <div className="atitlePrice">
             <h3>Total:</h3>
-            <h3>${order_list.total_prices}</h3>
+            <h3>${order_list?.total_prices}</h3>
           </div>
           <div className="aplace-on">
             <div className="container_aplace">
               <div className="box_places">
                 <p>
                   Payment date:{" "}
-                  {new Date(order_list.created_at).toLocaleString()}
+                  {order_list?.created_at ? new Date(order_list.created_at).toLocaleString() : 'Loading...'}
                 </p>
                 <p>Payment method: Transfer</p>
-                <p>Account name: {order_list.account_name}</p>
-                <p>Status: {order_list.status}</p>
+                <p>Account name: {order_list?.account_name}</p>
+                <p>Status: {order_list?.status}</p>
                 <p>
-                  Delivery: {order_list.shipping_company}, Province:{" "}
-                  {order_list.province}, Destrict: {order_list.district},
-                  Branch: {order_list.branch}
+                  Delivery: {order_list?.shipping_company}, Province:{" "}
+                  {order_list?.province}, Destrict: {order_list?.district},
+                  Branch: {order_list?.branch}
                 </p>
               </div>
 
             </div>
             <form>
-              {order_list.status === "Processing" && (
+              {/* {order_list?.status === "Processing" && (
                 <div className="status">
                   <div className="url">
                     <label htmlFor="chinaToLaoURL">url China to Lao:</label>
@@ -371,11 +373,11 @@ const OrderBill = () => {
                     <button onClick={ChangeChinaURL}>add</button>
                   </div>
                 </div>
-              )}
+              )} */}
 
-              {order_list.status === "Shipped" && (
+              {order_list?.status === "Shipped" && (
                 <div className="status">
-                  <div className="url">
+                  {/* <div className="url">
                     <label htmlFor="chinaToLaoURL">url China to Lao:</label>
                     <input
                       type="text"
@@ -386,8 +388,8 @@ const OrderBill = () => {
                       onChange={(e) => set_china_url(e.target.value)}
                     />
                     <button onClick={ChangeChinaURL}>add</button>
-                  </div>
-                  <div className="url">
+                  </div> */}
+                  {/* <div className="url">
                     <label htmlFor="branTobranURL">url Bran to Bran:</label>
                     <input
                       type="text"
@@ -398,20 +400,20 @@ const OrderBill = () => {
                       onChange={(e) => set_lao_url(e.target.value)}
                     />
                     <button onClick={ChangeLaoURL}>add</button>
-                  </div>
+                  </div> */}
                   <div className="box_show_bill">
-                    <div className="image_bill">
+                    {/* <div className="image_bill">
                       <img src={order_bill || imageicon} alt="image" />
-                    </div>
+                    </div> */}
 
-                    <div
+                    {/* <div
                       className="popup_image_bill"
                       onClick={() => {
                         togglePopupImageBill();
                       }}
                     >
                       <CiCamera id="box_icon_camera" />
-                    </div>
+                    </div> */}
                     {isPopupImageBill && (
                       <form className="background_addproductpopup_bill">
                         <div className="hover_addproductpopup_box_image">
@@ -464,7 +466,7 @@ const OrderBill = () => {
                 </div>
               )}
 
-              {order_list.status === "Delivered" && (
+              {/* {order_list?.status === "Delivered" && (
                 <div className="status">
                   <div className="url">
                     <label htmlFor="chinaToLaoURL">url China to Lao:</label>
@@ -518,14 +520,14 @@ const OrderBill = () => {
                               ) : (
                                 <img src={imageicon} alt="img" />
                               )}
-                              {/* {order_bill ? (
+                              {order_bill ? (
                                 <img
                                   src={URL.createObjectURL(order_bill[0])}
                                   alt="img"
                                 />
                               ) : (
                                 <img src={imageicon} alt="img" />
-                              )} */}
+                              )}
                               <input
                                 type="file"
                                 onChange={handleImageBill}
@@ -554,13 +556,13 @@ const OrderBill = () => {
                     )}
                   </div>
                 </div>
-              )}
+              )} */}
 
               <div className="status btn">
-                {order_list.status !== "Delivered" && (
+                {order_list?.status !== "Delivered" && (
                   <button
                     type="submit"
-                    className="aplace_form_button "
+                    className="aplace_form_button"
                     onClick={ConfirmOrder}
                   >
                     Confirm

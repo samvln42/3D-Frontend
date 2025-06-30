@@ -70,26 +70,29 @@ const Signup = () => {
   };
 
   useEffect(() => {
+    let isSubscribed = true;
     const countdown = setInterval(() => {
-      if (second > 0) {
-        set_timer({
-          ...timer,
-          second: second - 1,
-        });
-      }
-      if (second === 0) {
-        if (minute === 0) {
-          clearInterval(countdown);
+        if (!isSubscribed) return;
+
+        if (second > 0) {
+            set_timer(prevTimer => ({
+                ...prevTimer,
+                second: prevTimer.second - 1,
+            }));
+        } else if (minute > 0) {
+            set_timer(prevTimer => ({
+                minute: prevTimer.minute - 1,
+                second: 59,
+            }));
         } else {
-          set_timer({
-            minute: minute - 1,
-            second: 59,
-          });
+            clearInterval(countdown);
         }
-      }
     }, 1000);
+
+    // Cleanup function
     return () => {
-      clearInterval(countdown);
+        isSubscribed = false;
+        clearInterval(countdown);
     };
   }, [timer]);
 

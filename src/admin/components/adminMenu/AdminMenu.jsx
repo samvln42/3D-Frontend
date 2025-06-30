@@ -1,10 +1,12 @@
 import "./adminMenu.css";
-import { IoDocumentText, IoLogOutOutline } from "react-icons/io5";
+import { IoLogOutOutline } from "react-icons/io5";
 import { BiUser } from "react-icons/bi";
 import { HiOutlineBuildingStorefront } from "react-icons/hi2";
 import { LiaUserCogSolid } from "react-icons/lia";
 import { RxDashboard } from "react-icons/rx";
 import { MdOutlineSell } from "react-icons/md";
+import { FcPanorama } from "react-icons/fc";
+import { FaProductHunt } from "react-icons/fa";
 import Logo1 from "../../../img/Logo1.png";
 import { NavLink } from "react-router-dom";
 import user from "../../../img/user.png";
@@ -31,9 +33,26 @@ const AdminMenu = () => {
   const [logo, set_logo] = useState(null);
   const [image, set_image] = useState(null);
   const [mainImageLogo, setMainImagLogo] = useState(null);
+  const [is3dMode, setIs3dMode] = useState(false);
+
 
   // Choose logo image
   const [isPopupImageLogo, setPopupImageLogo] = useState(false);
+
+
+  // get 3d mode
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow"
+    };
+
+    fetch(`${import.meta.env.VITE_API}/store/${store_id}/mode-3d`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => setIs3dMode(result.is_enabled))
+      .catch((error) => console.error(error));
+  }, [store_id]);
+
 
   const togglePopupImageLogo = () => {
     setPopupImageLogo(true);
@@ -41,6 +60,7 @@ const AdminMenu = () => {
 
   const togglePopupCancelImageLogo = () => {
     setPopupImageLogo(false);
+    setMainImagLogo(null);
   };
 
   useEffect(() => {
@@ -149,7 +169,6 @@ const AdminMenu = () => {
       })
       .catch((error) => console.error(error));
   };
-
   return (
     <>
       <section id="dashboard">
@@ -160,9 +179,15 @@ const AdminMenu = () => {
               <p>Dashboard</p>
             </NavLink>
             <NavLink to="/product-admin" className="link">
-              <IoDocumentText />
+              <FaProductHunt />
               <p>Products</p>
             </NavLink>
+            {is3dMode && (
+              <NavLink to="/panorama" className="link">
+                <FcPanorama />
+                <p>Panorama</p>
+              </NavLink>
+            )}
             {is_admin === true && (
               <>
                 <NavLink to="/store-admin" className="link">
@@ -173,10 +198,10 @@ const AdminMenu = () => {
                   <BiUser />
                   <p>Users</p>
                 </NavLink>
-                <NavLink to="/admins" className="link">
+                {/* <NavLink to="/admins" className="link">
                   <LiaUserCogSolid />
                   <p>Admins</p>
-                </NavLink>
+                </NavLink> */}
               </>
             )}
             <NavLink to="/payment-store" className="link">
@@ -205,7 +230,7 @@ const AdminMenu = () => {
                       className="btn_confirm btn_addproducttxt_popup"
                       onClick={handleConfirmLogout}
                     >
-                    Yes
+                      Yes
                     </button>
                   </div>
                 </div>
@@ -229,13 +254,13 @@ const AdminMenu = () => {
 
               {isPopupImageLogo && (
                 <form
-                  className="background_addproductpopup_box"
+                  className="box_formUpdate"
                   onSubmit={ChangeLogo}
                 >
-                  <div className="hover_addproductpopup_box_image">
-                    <div className="box_input_image">
-                      <p>Edit Logo image</p>
-                      <label className="popup_Border_Boximagae">
+                  <div className="formUpdate">
+                    <p>Edit Logo image</p>
+                    <div className="imageBox">
+                      <label>
                         {mainImageLogo && mainImageLogo.length > 0 ? (
                           <img
                             src={URL.createObjectURL(mainImageLogo[0])}
@@ -250,10 +275,12 @@ const AdminMenu = () => {
                           onChange={handleImageLogo}
                           required
                         />
-                        <p className="box_choose_image">Choose img</p>
+                        <div className="choose">
+                          <p>Choose img</p>
+                        </div>
                       </label>
                     </div>
-                    <div className="btn_foasdf">
+                    <div className="btn-update-del">
                       <button
                         className="btn_cancel btn_addproducttxt_popup"
                         onClick={togglePopupCancelImageLogo}
@@ -272,7 +299,7 @@ const AdminMenu = () => {
               )}
             </div>
             <div className="boximage_admin">
-              <NavLink to="/account-admin" className="userAdminImage">
+              <NavLink to="/more" className="userAdminImage">
                 <p>{storage.email}</p>
                 <img src={storage.image || user} alt="admin profile" />
               </NavLink>

@@ -163,9 +163,14 @@ a {
   border-radius: 4px;
 }
 
+.admin {
+  margin-left: -155px;
+}
+
 .box_product {
-  width: 100%;
-  height: auto;
+  position: relative;
+  width: 300px;
+  /* height: auto; */
   display: flex;
   border: 1px solid #eee;
   flex-direction: column;
@@ -177,7 +182,9 @@ a {
 }
 
 .banner_no_box {
-  position: relative;
+  /* position: relative; */
+  width: 100%;
+  height: 70vh;
   /* margin-bottom: 10px; */
   /* margin-top: 2.5rem; */
 }
@@ -186,31 +193,16 @@ a {
   display: none;
 }
 
-.banner_no_box_image {
-  object-fit: cover;
-  overflow: hidden;
-  height: 60vh;
-}
-
-.banner_no_box_image img {
+.banner_no_box img {
   width: 100%;
-  cursor: pointer;
-}
-
-.box_image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 70vh;
+  object-fit: contain;
   overflow: hidden;
 }
 
 .box_image img {
   width: 100%;
-  height: 100vh;
-  cursor: pointer;
-  object-fit: cover;
-  overflow: hidden;
-  padding: 0 10px;
+  height: 100%;
 }
 
 .edit_image_banner {
@@ -402,24 +394,27 @@ a {
 .slider_box3D_admin {
   position: relative;
   width: 75%;
-  height: 500px;
+  height: auto;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 50px;
 }
 
 .slider_box3D_admin canvas {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 2/1;
   object-fit: contain;
 }
 
 .containner_point_admin {
   width: 25%;
-  display: grid;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
   text-align: center;
-  grid-template-columns: 1fr;
   box-shadow: 0 0 10px #ccc;
   overflow-y: auto;
   max-height: 500px;
@@ -434,10 +429,10 @@ a {
 }
 
 .point {
-  margin-top: 10px;
-  display: grid;
-  height: 24px;
-  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .point_name {
@@ -445,18 +440,11 @@ a {
   align-items: center;
   justify-content: center;
   gap: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.GrStatusGoodSmall_admin {
-  width: 20px;
-  height: 20px;
-  margin: auto;
-  border-radius: 50%;
-  background: #666;
-  cursor: pointer;
-  border: none;
-}
 .point_view_name {
   display: flex;
   gap: 5px;
@@ -509,14 +497,18 @@ a {
 
 .but1_box3D_admin {
   position: absolute;
-  top: 180px;
+  top: 50%;
   left: 0;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
 .but2_box3D_admin {
   position: absolute;
-  top: 180px;
+  top: 50%;
   right: 0;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
 .nav-btn_box3D_admin {
@@ -857,7 +849,7 @@ input:focus {
   align-items: center;
   gap: 20px;
   width: 100%;
-  height: 45vh;
+  /* height: 45vh; */
   object-fit: cover;
   background-color: #fff;
   border-top-left-radius: 10px;
@@ -871,9 +863,9 @@ input:focus {
 }
 
 .box_input_image img {
-  width: 215px;
+  width: 300px;
   height: 185px;
-  object-fit: cover;
+  object-fit: fill;
   cursor: pointer;
   border-radius: 7px;
 }
@@ -920,7 +912,7 @@ input:focus {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #00000036;
+  background-color: #00000009;
   z-index: 999;
 }
 
@@ -939,21 +931,54 @@ input:focus {
   text-align: center;
   display: grid;
   justify-content: center;
-  top: 22%;
+  top: 20%;
   left: 32.5%;
   width: 540px;
-  height: 55vh;
+  /* height: 100%; */
+  height: 60vh;
   background-color: #fff;
   z-index: 999;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  padding: 1rem;
 }
 
 .imageBox {
   position: relative;
-  width: 200px;
-  height: 200px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  width: 200px;
+  height: 250px;
+  /* height: 300px; */
+  margin: 2rem;
+
+  /* height: 200px; */
+  object-fit: fill;
+  /* margin: 0 auto; */
+  overflow: hidden;
+  border-radius: 7px;
+}
+
+.imageBox input {
+  display: none;
+}
+
+.choose {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 250px;
+  transform: translate(-50%, -50%);
+  background: #000000a3;
+  border-radius: 7px;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .imageBox p {
@@ -961,29 +986,11 @@ input:focus {
   font-size: 18px;
 }
 
-.imageBox .choose {
-  display: flex;
-  position: absolute;
-  background: #000000a3;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  width: 100%;
-  height: 26.9vh;
-  overflow: hidden;
-  top: 50.5%;
-  left: 0;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
 .imageBox img {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
-  height: 24vh;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
   border-radius: 7px;
 }
 
@@ -995,13 +1002,27 @@ input:focus {
 }
 
 .hover_addproductpopup_box {
-  width: 30%;
+  width: 40%;
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* .box_image {
+  width: 122px;
+  height: 122px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.box_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+} */
 
 .box_input {
   display: flex;
@@ -1010,7 +1031,7 @@ input:focus {
   align-items: center;
   gap: 30px;
   width: 100%;
-  height: 22vh;
+  height: 35vh;
   background-color: #fff;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -1024,6 +1045,7 @@ input:focus {
   width: 80%;
   height: 58px;
   border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
 .box_icon_camera_product {
@@ -1096,11 +1118,11 @@ input:focus {
   font-size: 18px;
 }
 
-.btn_confirm {
+/* .btn_confirm {
   background-color: #347fff;
   color: #fff;
   font-size: 18px;
-}
+} */
 
 .btn_cancel:hover {
   background-color: #e7e8ee;
@@ -1136,11 +1158,12 @@ input:focus {
 }
 
 .btn_foasdf {
+  width: 100%;
   display: flex;
 }
 
 /* ========== box add size ==========*/
-.background_addproductpopup_box {
+/* .background_addproductpopup_box {
   position: fixed;
   top: 0;
   left: 0;
@@ -1148,7 +1171,7 @@ input:focus {
   height: 100vh;
   background-color: #00000036;
   z-index: 999;
-}
+} */
 
 .addproductpopup_box {
   width: 30%;
@@ -1275,11 +1298,10 @@ input:focus {
 
   .slider_box3D_admin {
     width: 100%;
-    height: 500px;
+    padding: 0 40px;
   }
 
   .slider_box3D_admin canvas {
-    width: 100%;
     max-width: 1000px;
     margin: 0 auto;
   }
@@ -1344,7 +1366,12 @@ input:focus {
 
   .slider_box3D_admin {
     width: 100%;
-    height: 400px;
+    padding: 0 35px;
+  }
+
+  .slider_box3D_admin canvas {
+    width: 100%;
+    max-width: 100%;
   }
 
   .containner_point_admin {
@@ -1375,10 +1402,6 @@ input:focus {
     font-size: 24px;
   }
 
-  .banner_no_box_image {
-    height: 40vh;
-  }
-
   .box_image img {
     height: 60vh;
   }
@@ -1395,11 +1418,12 @@ input:focus {
   /* Keep coordinate system intact */
   .slider_box3D_admin canvas {
     width: 100%;
-    max-height: 300px;
+    max-width: 100%;
   }
 
   .slider_box3D_admin {
     height: 300px;
+    padding: 0 30px;
   }
 }
 

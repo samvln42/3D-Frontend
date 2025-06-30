@@ -19,7 +19,7 @@ const Payment = ({ orders, order_from, onPay }) => {
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("user");
   const [store_name, set_store_name] = useState("");
-  const [store_id, set_store_id] = useState([]);
+  const [store_id, set_store_id] = useState(null);
   const [store_account_number, set_store_account_number] = useState("");
   const navigate = useNavigate();
   const [tel, set_tel] = useState("");
@@ -29,7 +29,11 @@ const Payment = ({ orders, order_from, onPay }) => {
   const [shipping_company, set_shipping_company] = useState("");
   const [branch, set_branch] = useState("");
   const [copied, setCopied] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
   const MySwal = withReactContent(Swal);
+
+  // Get user_id from localStorage
+  const user_id = user ? JSON.parse(user).user_id : null;
 
   // For order by cart
   if (order_from === "cart") {
@@ -43,19 +47,24 @@ const Payment = ({ orders, order_from, onPay }) => {
     }, [cart, orders]);
   }
 
-  var user_id = null;
-  if (localStorage.getItem("user")) {
-    user_id = JSON.parse(window.localStorage.getItem("user")).user_id;
-  }
-  var totalPrice = 0;
-
   useEffect(() => {
     // Extract store_id from each product and update state
-    const id = orders.flatMap((order) => order.store);
-    set_store_id(id);
+    if (orders && orders.length > 0 && orders[0].store) {
+      set_store_id(orders[0].store);
+    }
   }, [orders]); // Update state whenever orders change
 
-  console.log("store: ", store_id);
+  // Calculate total price when orders change
+  useEffect(() => {
+    let total = 0;
+    orders.forEach(order => {
+      order.items.forEach(item => {
+        total += item.price * item.quantity;
+      });
+    });
+    setTotalPrice(total);
+  }, [orders]);
+
   useEffect(() => {
     let data = JSON.stringify({
       token: token,
@@ -89,8 +98,10 @@ const Payment = ({ orders, order_from, onPay }) => {
       });
   }, [token]);
 
-  // For get bacnk account by store
+  // For get bank account by store
   useEffect(() => {
+    if (!store_id) return;
+    
     let data = "";
 
     let config = {
@@ -109,10 +120,16 @@ const Payment = ({ orders, order_from, onPay }) => {
       .request(config)
       .then((response) => {
         console.log(response);
-        set_store_account_number(response.data[0].account_number);
+        if (response.data && response.data.length > 0) {
+          set_store_account_number(response.data[0].account_number);
+        }
       })
       .catch((error) => {
         console.log(error);
+        MySwal.fire({
+          text: "Failed to fetch bank account information",
+          icon: "error",
+        });
       });
   }, [store_id]);
 
@@ -120,9 +137,7 @@ const Payment = ({ orders, order_from, onPay }) => {
     const value = e.target.value;
     set_tel(value);
   };
-  const handleImage = (e) => {
-    set_statement_image(e.target.files[0]);
-  };
+  
   const handleProvince = (e) => {
     const value = e.target.value;
     set_province(value);
@@ -193,41 +208,41 @@ const Payment = ({ orders, order_from, onPay }) => {
         text: "Please add the account name!",
         icon: "question",
       });
-      return; // Abort the function if statement_image is null
+      return; // Abort the function if account_name is null
     }
 
     // Extract product information from each order
     const products = orders.flatMap((order) =>
       order.items.map((item) => ({
         product: item.id,
-        quantity: item.quantity,
-        price: item.price,
-        color: item.color,
-        size: item.size,
+        quantity: parseInt(item.quantity),
+        price: parseFloat(item.price),
+        color: item.color || null,
+        size: item.size || null,
       }))
     );
 
-    // alert(orders[0].store)
+    if (!store_id) {
+      MySwal.fire({
+        text: "Store information is missing. Please try again.",
+        icon: "error",
+      });
+      return;
+    }
 
-    let data = JSON.stringify({
+    const data = {
       user: user_id,
-      store: orders[0].store,
+      store: store_id,
       tel: tel,
       status: "Pending",
-      total_prices: totalPrice,
+      total_prices: parseFloat(totalPrice),
       province: province,
       district: district,
       shipping_company: shipping_company,
       branch: branch,
       account_name: account_name,
-      items: products.map((product) => ({
-        product: product.product,
-        quantity: product.quantity,
-        price: product.price,
-        color: product.color,
-        size: product.size,
-      })),
-    });
+      items: products
+    };
 
     let config = {
       method: "post",
@@ -235,6 +250,7 @@ const Payment = ({ orders, order_from, onPay }) => {
       url: import.meta.env.VITE_API + "/store/order/create",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
       },
       data: data,
     };
@@ -242,9 +258,8 @@ const Payment = ({ orders, order_from, onPay }) => {
     axios
       .request(config)
       .then((response) => {
-        // alert("The order has been complated.");
         MySwal.fire({
-          text: "The order has been complated.",
+          text: "The order has been completed.",
           icon: "success",
         });
         if (order_from === "buy_now") {
@@ -275,9 +290,12 @@ const Payment = ({ orders, order_from, onPay }) => {
       })
       .catch((error) => {
         console.log(error);
+        MySwal.fire({
+          text: "Failed to create order. Please try again.",
+          icon: "error",
+        });
       });
   };
-  console.log(orders);
 
   return (
     <>
@@ -294,15 +312,14 @@ const Payment = ({ orders, order_from, onPay }) => {
                     <img src={item.images} alt="" />
                     <div className="box_item_text">
                       <p>Name: {item.name}</p>
-                      <p>Color: {item.color}</p>
-                      <p>Size: {item.size}</p>
-                      <p>
-                        Price:{" "}$
-                        {parseFloat(item.price).toLocaleString("en-US", {
+                      {/* <p>Color: {item.color}</p>
+                      <p>Size: {item.size}</p> */}
+                      <p className="product-price">
+                        Price:{" "} {parseFloat(item.price).toLocaleString("en-US", {
                           minimumFractionDigits: 0,
                           maximumFractionDigits: 0,
                           useGrouping: true,
-                        })}
+                        })} 원
                       </p>
                       <p>
                         Quantity:{" "}
@@ -312,7 +329,6 @@ const Payment = ({ orders, order_from, onPay }) => {
                           useGrouping: true,
                         })}
                       </p>
-                      <p hidden>{(totalPrice += item.price * item.quantity)}</p>
                     </div>
                   </div>
                 </div>
@@ -346,7 +362,7 @@ const Payment = ({ orders, order_from, onPay }) => {
                 />
               </div>
               <div className="box">
-                <label htmlFor="companny">Shipping Companny name:</label>
+                <label htmlFor="companny">Shipping Company name:</label>
                 <input
                   type="text"
                   id="companny"
@@ -375,13 +391,12 @@ const Payment = ({ orders, order_from, onPay }) => {
             </form>
           </div>
           <div className="box_transfer">
-            <h3 className="box_transfer_p_line">
-              Total Price:{" "}$
-              {parseFloat(totalPrice).toLocaleString("en-US", {
+            <h3 className="box_transfer_p_line product-price">
+              Total Price:{" "} {parseFloat(totalPrice).toLocaleString("en-US", {
                 minimumFractionDigits: 0,
                 maximumFractionDigits: 0,
                 useGrouping: true,
-              })}{" "}
+              })} 원
             </h3>
           </div>
           <div className="box_transfer">
@@ -400,9 +415,9 @@ const Payment = ({ orders, order_from, onPay }) => {
               />
             </div>
           </div>
-          <Link onClick={handlePay} className="save">
+          <button onClick={handlePay} className="save">
             Confirm
-          </Link>
+          </button>
         </div>
       </div>
       <Menu />
@@ -411,3 +426,4 @@ const Payment = ({ orders, order_from, onPay }) => {
 };
 
 export default Payment;
+

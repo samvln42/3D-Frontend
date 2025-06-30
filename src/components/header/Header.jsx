@@ -110,9 +110,11 @@ const Header = () => {
   }
   const handleSearch = (e) => {
     e.preventDefault();
-    const searchPath = `/search/?search=${search}`;
-
-    navigate(searchPath);
+    if (search.trim()) {
+      const searchPath = `/search/?search=${encodeURIComponent(search.trim())}`;
+      navigate(searchPath);
+      setSearch(search.trim());
+    }
   };
 
   const handleClick = () => {
@@ -122,6 +124,32 @@ const Header = () => {
     });
   };
 
+  // const handleStockedClick = async () => {
+  //   // await handleStocked(16);
+  //   handleOpen3DMode();
+
+  //   // // Add a small delay to ensure the canvas is ready
+  //   // setTimeout(() => {
+  //   //   if (canvasContainerRef && canvasContainerRef.current) {
+  //   //     if (canvasContainerRef.current.requestFullscreen) {
+  //   //       canvasContainerRef.current.requestFullscreen();
+  //   //     } else if (canvasContainerRef.current.mozRequestFullScreen) {
+  //   //       canvasContainerRef.current.mozRequestFullScreen();
+  //   //     } else if (canvasContainerRef.current.webkitRequestFullscreen) {
+  //   //       canvasContainerRef.current.webkitRequestFullscreen();
+  //   //     } else if (canvasContainerRef.current.msRequestFullscreen) {
+  //   //       canvasContainerRef.current.msRequestFullscreen();
+  //   //     }
+  //   //     canvasContainerRef.current.classList.add('fullscreen-canvas');
+  //   //   }
+
+  //   //   window.scrollTo({
+  //   //     top: 650,
+  //   //     behavior: "smooth",
+  //   //   });
+  //   // }, 5);
+  // };
+
   return (
     <>
       <section id="header">
@@ -130,7 +158,7 @@ const Header = () => {
             <div className="headMenu">
               <div className="logo1">
                 <Link to="/">
-                  <img src={logo} alt="Logo" />
+                  <img src={import.meta.env.VITE_API + logo} alt="Logo" />
                 </Link>
               </div>
               <div className="boxLiMenu">
@@ -151,9 +179,8 @@ const Header = () => {
                   </Link> */}
                   <Link
                     to="/order"
-                    className={`link ${
-                      activeMenu === "Orders" ? "active" : ""
-                    }`}
+                    className={`link ${activeMenu === "Orders" ? "active" : ""
+                      }`}
                     onClick={() => {
                       handleMenuClick("Orders");
                       handleClick();
@@ -198,12 +225,12 @@ const Header = () => {
                       }}
                     >
                       <FaCartShopping
-                        className={`head_colorr ${
-                          activeMenu === "Cart" ? "active" : ""
-                        }`}
+                        className={`head_colorr ${activeMenu === "Cart" ? "active" : ""
+                          }`}
                       />
                     </Link>
                   </div>
+                  {/* <button onClick={handleStockedClick}>stocked</button> */}
                   <div className="userAndstore">
                     <Link
                       to="/more"
@@ -211,9 +238,8 @@ const Header = () => {
                       onClick={() => handleMenuClick("More")}
                     >
                       <FaRegUser
-                        className={`head_colorr ${
-                          activeMenu === "More" ? "active" : ""
-                        }`}
+                        className={`head_colorr ${activeMenu === "More" ? "active" : ""
+                          }`}
                       />
                     </Link>
                   </div>
@@ -225,9 +251,8 @@ const Header = () => {
                         onClick={() => handleMenuClick("Dashboard")}
                       >
                         <HiOutlineBuildingStorefront
-                          className={`head_colorr ${
-                            activeMenu === "Dashboard" ? "active" : ""
-                          }`}
+                          className={`head_colorr ${activeMenu === "Dashboard" ? "active" : ""
+                            }`}
                         />
                       </Link>
                     </div>
@@ -239,9 +264,8 @@ const Header = () => {
                         onClick={() => handleMenuClick("AdminDashboard")}
                       >
                         <AiOutlineDashboard
-                          className={`head_colorr ${
-                            activeMenu === "AdminDashboard" ? "active" : ""
-                          }`}
+                          className={`head_colorr ${activeMenu === "AdminDashboard" ? "active" : ""
+                            }`}
                         />
                       </Link>
                     </div>
@@ -254,9 +278,8 @@ const Header = () => {
                   <div className="boxsearchContainer">
                     <Link to="/cart" onClick={() => handleMenuClick("Cart")}>
                       <FaCartShopping
-                        className={`head_colorr ${
-                          activeMenu === "Cart" ? "active" : ""
-                        }`}
+                        className={`head_colorr ${activeMenu === "Cart" ? "active" : ""
+                          }`}
                       />
                     </Link>
                   </div>
@@ -268,9 +291,8 @@ const Header = () => {
                     >
                       Login
                       <BiLogIn
-                        className={`head_colorr ${
-                          activeMenu === "Login" ? "active" : ""
-                        }`}
+                        className={`head_colorr ${activeMenu === "Login" ? "active" : ""
+                          }`}
                         id="icon_BiLogIn"
                       />
                     </Link>

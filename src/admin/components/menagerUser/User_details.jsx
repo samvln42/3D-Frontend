@@ -11,71 +11,25 @@ import profile from "../../../img/profile.jpg";
 import axios from "axios";
 
 const User_details = () => {
-  const token = localStorage.getItem("token");
-  const id = useParams().id;
+  const { id } = useParams()
   const navigate = useNavigate();
   const [user, set_user] = useState([]);
 
   useEffect(() => {
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/user/client-users",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${localStorage.getItem("token")}`);
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
     };
 
-    axios
-      .request(config)
-      .then((response) => {
-        // console.log(JSON.stringify(response.data));
-        set_user(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  useEffect(() => {
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + `/user/client-users/${id}/get`,
-      headers: {},
-    };
-
-    axios
-      .request(config)
-      .then((response) => {
-        set_user(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  const handleDelete = (id) => {
-    let data = "";
-
-    let config = {
-      method: "delete",
-      maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + `/user/client-users/${id}`,
-      headers: {},
-      data: data,
-    };
-
-    axios
-      .request(config)
-      .then((response) => {
-        alert("Delete user successful.");
-        navigate("/users");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+    fetch(`${import.meta.env.VITE_API}/user/${id}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => set_user(result))
+      .catch((error) => console.error(error));
+  }, [id]);
 
   return (
     <>
@@ -91,7 +45,7 @@ const User_details = () => {
           <form>
             <div className="addAdminForm">
               <h3>User Details</h3>
-              <div
+              {/* <div
                 className="del-update"
                 onClick={() => {
                   handleDelete(user.id);
@@ -100,7 +54,7 @@ const User_details = () => {
                 <div className="del">
                   <AiOutlineDelete />
                 </div>
-              </div>
+              </div> */}
               <div className="add-box">
                 <label htmlFor="fname" className="titlelabel">
                   User ID:

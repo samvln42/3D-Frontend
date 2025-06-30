@@ -30,13 +30,6 @@ function ReviewProduct(id) {
     user_id = JSON.parse(window.localStorage.getItem("user")).user_id;
   }
 
-  console.log("#############################");
-  console.log(review);
-  console.log(user_id);
-  console.log(product_id);
-  console.log(rating);
-  console.log(comment);
-
   const orderitems = [
     {
       user: user_id,

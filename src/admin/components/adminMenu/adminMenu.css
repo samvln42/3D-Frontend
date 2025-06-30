@@ -198,13 +198,13 @@ body {
     background-color: #3076f0;
 }
 
-.btn_addproducttxt_popup {
+/* .btn_addproducttxt_popup {
     cursor: pointer;
     width: 100%;
     border: none;
     padding: 20px;
 
-}
+} */
 
 .input_of_txtAddproduct {
     width: 80%;
@@ -213,6 +213,6 @@ body {
     border: 1px solid #DDDCE1;
 }
 
-.btn_foasdf {
+/* .btn_foasdf {
     display: flex;
-}
+} */

@@ -39,7 +39,7 @@ body {
 
 /* ----------- Text Name, Price and Description ---------------- */
 .contentBody {
-    width: 70%;
+    width: 80%;
     margin: 6rem auto 0 auto;
 }
 
@@ -284,9 +284,9 @@ body {
     margin: auto;
 }
 
-.product-page-img .slider_img::-webkit-scrollbar {
+/* .product-page-img .slider_img::-webkit-scrollbar {
     display: none;
-}
+} */
 
 .product-page-img .slider_img .slider-box {
     width: 50px;
@@ -394,9 +394,9 @@ body {
         user-select: none;
     }
 
-    .product-page-img .slider_img::-webkit-scrollbar {
+    /* .product-page-img .slider_img::-webkit-scrollbar {
         display: none;
-    }
+    } */
 
     .product-page-img .slider_img .slider-box {
         width: 50px;

@@ -12,6 +12,12 @@
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+    transition: all 0.3s ease;
+}
+
+.box_contanier_stoer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn_box_Cont {
@@ -27,6 +33,12 @@
     border: none;
     background: #347effda;
     box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.viewMore_storeDetails:hover {
+    background: #2461cc;
+    transform: translateY(-2px);
 }
 
 .delete_storeDetails {
@@ -37,4 +49,210 @@
     border: none;
     background: #fa442cd8;
     box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.delete_storeDetails:hover {
+    background: #d63a26;
+    transform: translateY(-2px);
+}
+
+.add_store{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+/* add store */
+
+.seller-registration-container {
+    position: absolute;
+    width: 50%;
+    top: 55%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+    z-index: 1000;
+}
+
+.seller-registration-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.seller-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 0 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #347effda;
+    box-shadow: 0 0 0 2px rgba(52, 126, 255, 0.1);
+}
+
+.submit-button {
+    background-color: #347effda;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #2461cc;
+    transform: translateY(-1px);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.add_store h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-transform: capitalize;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .seller-registration-container {
+        width: 95%;
+        left: 50%;
+        padding: 15px;
+    }
+    
+    .seller-form {
+        padding: 0 10px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+    }
+    
+    .box_contanier_stoer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .btn_box_Cont {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .viewMore_storeDetails,
+    .delete_storeDetails {
+        width: 100%;
+        padding: 10px 20px;
+    }
+}
+
+/* No Store Message */
+.no-reviews-message {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin: 2rem 0;
+    font-style: italic;
+}
+
+.close_form {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* background: #347effda; */
+    color: red;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 3D Mode Checkbox Styling */
+.box_3d_mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input_3d_mode {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.input_3d_mode:checked {
+  background: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.input_3d_mode:checked::before {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.admin_store {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4CAF50;
 }

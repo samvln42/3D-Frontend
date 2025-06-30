@@ -153,8 +153,8 @@ const Bill = () => {
                       <th>Product</th>
                       <th>Price</th>
                       <th>Amount</th>
-                      <th>Color</th>
-                      <th>Size</th>
+                      {/* <th>Color</th>
+                      <th>Size</th> */}
                       {order_list.status === "Delivered" && <th>Review</th>}
                     </tr>
                   </thead>
@@ -173,8 +173,8 @@ const Bill = () => {
                             })}
                           </td>
                           <td>{item.quantity}</td>
-                          <td>{item.color}</td>
-                          <td>{item.size}</td>
+                          {/* <td>{item.color}</td>
+                          <td>{item.size}</td> */}
                           {order_list.status === "Delivered" && (
                             <th>
                               <button
@@ -217,18 +217,18 @@ const Bill = () => {
                   {order_list.province}, Destrict: {order_list.district},
                   Branch: {order_list.branch}
                   </p> */}
-                  <div className="Box_China_Branch">
+                  {/* <div className="Box_China_Branch">
                     <p>Follow items (China to Laos): </p>
                     <Link to={order_list.china_url}>Click here</Link>
                   </div>
                   <div className="Box_China_Branch">
                     <p>Follow items (Branch to Branch): </p>
                     <Link to={order_list.lao_url}>Click here</Link>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="Box_btn_bill">
+                {/* <div className="Box_btn_bill">
                   <img src={productImage} alt="img" />
-                </div>
+                </div> */}
               </div>
             </div>
 

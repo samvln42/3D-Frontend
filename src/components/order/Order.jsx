@@ -9,44 +9,44 @@ import Products from "../products/Products";
 
 const Order = () => {
   const token = localStorage.getItem("token");
-  const user = localStorage.getItem("user");
+  // const user = localStorage.getItem("user");
   // const user_id = JSON.parse(window.localStorage.getItem("user")).user_id;
   const navigate = useNavigate();
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
   const [order_list, set_order_list] = useState([]);
   const [display_order, set_display_order] = useState([]);
   const [show_all_order, set_show_all_order] = useState(false);
-  const [category, set_category] = useState(1);
-  const [products_list, set_products_list] = useState([]);
+  // const [category, set_category] = useState(1);
+  // const [products_list, set_products_list] = useState([]);
 
-  useEffect(() => {
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + `/store/?category=${category}`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+  // useEffect(() => {
+  //   let config = {
+  //     method: "get",
+  //     maxBodyLength: Infinity,
+  //     url: import.meta.env.VITE_API + `/store/?category=${category}`,
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
 
-    axios
-      .request(config)
-      .then((response) => {
-        set_products_list(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [category]);
+  //   axios
+  //     .request(config)
+  //     .then((response) => {
+  //       set_products_list(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, [category]);
 
-  function StarAVG(value) {
-    let star_avg = (value / 5) * 100;
-    if (star_avg === 0) {
-      star_avg = 100;
-    }
-    return star_avg;
-  }
+  // function StarAVG(value) {
+  //   let star_avg = (value / 5) * 100;
+  //   if (star_avg === 0) {
+  //     star_avg = 100;
+  //   }
+  //   return star_avg;
+  // }
 
   var user_id = "";
   if (localStorage.getItem("user")) {
@@ -127,12 +127,12 @@ const Order = () => {
     set_show_all_order(!show_all_order);
   };
 
-  const handleClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  // const handleClick = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <>
@@ -185,7 +185,7 @@ const Order = () => {
         <br />
         <br />
 
-        <>
+        {/* <>
           {display_order.length === 0 ? (
             <>
               <Products
@@ -196,7 +196,7 @@ const Order = () => {
           ) : (
             <></>
           )}
-        </>
+        </> */}
       </section>
       <Menu />
     </>

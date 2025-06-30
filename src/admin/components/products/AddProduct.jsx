@@ -39,9 +39,6 @@ const AddProduct = () => {
   ]);
   const MySwal = withReactContent(Swal);
 
-
-  console.log("productsproducts....",products)
-
   useEffect(() => {
     let data = JSON.stringify({
       token: token,

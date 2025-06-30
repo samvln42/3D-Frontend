@@ -22,11 +22,18 @@ h3{
 
 
 .profile_box {
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
     padding: 0 20px 10px 12px;
 }
+
+.user_email, .user_phone, .user_address{
+    font-size: 19px;
+    font-weight: 600;
+    color: #5a5858dd;
+    margin-top: 1rem;
+}
+
 
 #icons_back {
     width: 25px;

@@ -52,6 +52,7 @@
 }
 
 .boxiconnandinput {
+    width: 100%;
     align-items: center;
     display: flex;
 }
@@ -65,6 +66,21 @@
     position: absolute;
     margin-left: 10px;
     color: #666;
+}
+
+.icon_check {
+    position: absolute;
+    right: 15%;
+    margin-left: 10px;
+    color: #666;
+    cursor: pointer;
+}
+.icon_edit {
+    position: absolute;
+    right: 5%;
+    margin-left: 10px;
+    color: #666;
+    cursor: pointer;
 }
 
 .titleaddmin {
@@ -84,7 +100,9 @@
 }
 
 #addAmin form .addAdminForm .add-box .input {
-    width: 100%;
+    display: flex;
+    position: relative;
+    width: 50%;
     font-size: 1rem;
     padding: 15px 35px;
 }
@@ -129,6 +147,24 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.box_3d_mode {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.box_3d_mode label {
+    font-size: 1.2rem;
+    color: #566a7f;
+    cursor: pointer;
+}
+
+.box_3d_mode input {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
 }
 
 #addAmin form .submit {

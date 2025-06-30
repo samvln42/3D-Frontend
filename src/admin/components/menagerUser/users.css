@@ -211,7 +211,7 @@
 
 
 /* ============ popup delete ===========*/
-.background_addproductpopup_box {
+/* .background_addproductpopup_box {
     position: fixed;
     top: 0;
     left: 0;
@@ -219,16 +219,16 @@
     height: 100vh;
     background-color: #00000010;
     z-index: 999;
-}
+} */
 
-.hover_addproductpopup_box {
+/* .hover_addproductpopup_box {
     width: 30%;
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 .box_logout {
     display: flex;
@@ -266,13 +266,13 @@
     background-color: #3076f0;
 }
 
-.btn_addproducttxt_popup {
+/* .btn_addproducttxt_popup {
     cursor: pointer;
     width: 100%;
     border: none;
     padding: 20px;
 
-}
+} */
 
 .input_of_txtAddproduct {
     width: 80%;
@@ -281,9 +281,9 @@
     border: 1px solid #DDDCE1;
 }
 
-.btn_foasdf {
+/* .btn_foasdf {
     display: flex;
-}
+} */
 
 /* ============ container prev next ===========*/
 

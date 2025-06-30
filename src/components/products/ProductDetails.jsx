@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { RotatingLines } from "react-loader-spinner";
 import axios from "axios";
-
+import istockphoto from "../../img/istockphoto.jpg";
 function ProductDetails() {
   const token = localStorage.getItem("token");
   const [store_id, set_store_id] = useState([]);
@@ -68,6 +68,9 @@ function ProductDetails() {
   }
 
   const [order, setOrder] = useState([]);
+
+  // เพิ่ม state สำหรับควบคุมจำนวนสินค้าที่แสดง
+  const [visibleProducts, setVisibleProducts] = useState(12);
 
   useEffect(() => {
     let data = JSON.stringify({
@@ -137,7 +140,7 @@ function ProductDetails() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + `/store/?category=${category}`,
+      url: import.meta.env.VITE_API + `/store/?store_id=${store_id}`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -151,7 +154,7 @@ function ProductDetails() {
       .catch((error) => {
         console.log(error);
       });
-  }, [category]);
+  }, [store_id]);
 
   const decrease = () => {
     if (quantity > 1) {
@@ -174,14 +177,14 @@ function ProductDetails() {
   }, [cart]);
 
   const addToCart = (product, color, size, quantity) => {
-    if (color == null) {
-      alert("Please select the color");
-      return; // Abort the function if color is null
-    }
-    if (size == null) {
-      alert("Please select the size");
-      return; // Abort the function if color is null
-    }
+    // if (color == null) {
+    //   alert("Please select the color");
+    //   return; // Abort the function if color is null
+    // }
+    // if (size == null) {
+    //   alert("Please select the size");
+    //   return; // Abort the function if color is null
+    // }
 
     const existingProduct = cart.find(
       (item) =>
@@ -289,6 +292,11 @@ function ProductDetails() {
     });
   };
 
+  // เพิ่มฟังก์ชันสำหรับโหลดสินค้าเพิ่ม
+  const handleLoadMore = () => {
+    setVisibleProducts(prevCount => prevCount + 12);
+  };
+
   return (
     <>
       {showPayment ? (
@@ -302,11 +310,11 @@ function ProductDetails() {
                 <div>
                   <form className="boxProduct_deteils">
                     <div className="product-page-img">
-                      <img src={product.images} alt="" />
+                      <img src={product.images ? product.images : istockphoto} alt="" />
                     </div>
                     <div className="txtContentproduct">
                       <h1 className="txt_nameP">{product.name}</h1>
-                      <p className="money_txt">$ {product.format_price}</p>
+                      <p className="money_txtp">{product.price} 원</p>
 
                       <p className="txt_description">{product.description}</p>
 
@@ -317,7 +325,7 @@ function ProductDetails() {
                         ></div>
                       </div>
 
-                      <div className="size_product">
+                      {/* <div className="size_product">
                         <p>Color:</p>
                         {product.colors && (
                           <div className="size">
@@ -357,7 +365,7 @@ function ProductDetails() {
                             ))}
                           </div>
                         )}
-                      </div>
+                      </div> */}
 
                       <div className="container_item_icon">
                         <div
@@ -442,25 +450,36 @@ function ProductDetails() {
               <span className="spennofStyle"> </span>
               More products
             </h2>
-            <div className="products-container">
-              <div className="products-grid">
-                {products_list.map((product, index) => (
-                  <div key={index} className="product-card">
-                    <Link to={`/goods/${product.id}`} onClick={handleClick}>
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="product-image"
-                      />
-                    </Link>
-                    <div className="product-info">
-                      <h3 className="product-name">{product.name}</h3>
-                      <p className="product-price">$ {product.price}</p>
-                    </div>
+
+            <div className="products-grid">
+              {products_list.slice(0, visibleProducts).map((product, index) => (
+                <div key={index} className="product-card">
+                  <Link to={`/goods/${product.id}`} onClick={handleClick}>
+                    <img
+                      src={product.image ? product.image : istockphoto}
+                      alt={product.name}
+                      className="product-image"
+                    />
+                  </Link>
+                  <div className="product-info">
+                    <h3 className="product-name">{product.name}</h3>
+                    <p className="product-description">{product.description.length > 20
+                      ? `${product.description.slice(0, 20)}...`
+                      : product.description}</p>
+                    <p className="product-price">{product.price} 원</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+
+            {visibleProducts < products_list.length && (
+              <div className="view-more-container">
+                <button className="view-more-button" onClick={handleLoadMore}>
+                  View More
+                </button>
+              </div>
+            )}
+
           </div>
 
           <Menu />
@@ -471,3 +490,4 @@ function ProductDetails() {
 }
 
 export default ProductDetails;
+

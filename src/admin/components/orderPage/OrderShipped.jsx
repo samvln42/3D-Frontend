@@ -73,9 +73,9 @@ const OrderShipped = () => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, [store_id]);
 
-  console.log(order_list);
+  // console.log(order_list);
 
   return (
     <>

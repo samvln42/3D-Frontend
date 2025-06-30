@@ -5,20 +5,23 @@
   padding: 20px;
   position: relative;
   overflow: visible;
+  margin-bottom: 5rem;
 }
 
 /* full screen canvas */
 canvas {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2/1; /* Maintain 1000:500 ratio */
+  object-fit: contain;
   display: block;
-  margin: 0 auto; /* Center the canvas */
+  margin: 0 auto;
 }
 
 .fullscreen-canvas {
-  width: 100vw !important;
-  height: 100vh !important;
-  object-fit: fill;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
   z-index: 1;
   display: flex !important;
   justify-content: center !important;
@@ -28,7 +31,7 @@ canvas {
 .product-gallery {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: auto;
   overflow: visible;
 }
 
@@ -70,7 +73,7 @@ canvas {
   padding: 15px;
   cursor: pointer;
   border-radius: 50%;
-  z-index: 10;
+  z-index: 3;
   transition: background-color 0.3s;
 }
 
@@ -87,7 +90,7 @@ canvas {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .product-gallery {
     height: 400px;
   }
@@ -95,9 +98,14 @@ canvas {
   .nav-button {
     padding: 10px;
   }
+
+  canvas {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .product-gallery {
     height: 300px;
   }
@@ -108,6 +116,12 @@ canvas {
 
   .p3d-container {
     padding: 10px;
+    margin-top: -50px;
+  }
+
+  canvas {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -206,7 +220,7 @@ canvas {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 3;
+  z-index: 4;
   font-size: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
@@ -216,8 +230,47 @@ canvas {
   background: rgba(255, 255, 255, 1);
 }
 
+/* เพิ่ม style สำหรับปุ่มปิด fullscreen */
+.exit-fullscreen-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: none; /* ซ่อนปุ่มเมื่อไม่ได้อยู่ในโหมด fullscreen */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  font-size: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.fullscreen-canvas .exit-fullscreen-button {
+  display: flex; /* แสดงปุ่มเมื่ออยู่ในโหมด fullscreen */
+}
+
+.fullscreen-canvas .fullscreen-button {
+  display: none; /* ซ่อนปุ่มเข้า fullscreen เมื่ออยู่ในโหมด fullscreen */
+}
+
+.fullscreen-map {
+  position: absolute;
+  top: 18%;
+  right: 10%;
+  z-index: 5;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .fullscreen-canvas .nav-button.next {
+    right: 40px;
+  }
+
   .fullscreen-button {
     width: 35px;
     height: 35px;
@@ -239,7 +292,7 @@ canvas {
 
 /* Responsive Design */
 /* ปรับปรุง category tags */
-.category-tags {
+/* .category-tags {
   position: absolute;
   top: 50%;
   right: -130px;
@@ -255,13 +308,22 @@ canvas {
   background: white;
   border-radius: 10px;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* ปรับปรุง Media Queries */
 @media (max-width: 1200px) {
   .category-tags {
     right: -100px;
     max-width: 100px;
+  }
+
+  .gallery-wrapper {
+    padding: 5px;
+  }
+
+  canvas {
+    max-width: 1000px;
+    margin: 0 auto;
   }
 }
 
@@ -271,22 +333,59 @@ canvas {
   }
 
   .category-tags {
-    position: relative;
+    /* position: fixed; */
+    bottom: -70px;
+    left: 0;
     right: 0;
-    top: 0;
+    top: auto;
     transform: none;
+    width: 100%;
     height: auto;
     max-width: 100%;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-    padding: 10px;
+    padding: 15px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    
+    /* ทำให้เลื่อนซ้ายขวาได้ */
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* สำหรับ Firefox */
+    
+    /* จัดการ scrollbar */
+    &::-webkit-scrollbar {
+      display: none; /* ซ่อน scrollbar สำหรับ Chrome, Safari, Edge */
+    }
   }
 
   .category-tag {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
+    margin: 0 5px;
+    white-space: nowrap;
+    padding: 8px 20px;
+    min-width: max-content;
   }
+
+  /* เพิ่ม indicator ว่าสามารถเลื่อนได้ */
+  .category-tags::after {
+    content: '';
+    flex: 0 0 20px;
+  }
+
+  .category-tags::before {
+    content: '';
+    flex: 0 0 20px;
+  }
+
+  /* ปรับ margin bottom ของ container เพื่อให้ไม่โดน category tags บัง */
+  /* .p3d-container {
+    margin-bottom: calc(5rem + 70px);
+  } */
 }
 
 @media (max-width: 768px) {
@@ -340,7 +439,7 @@ canvas {
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1000;
+  z-index: 10;
   animation: float 2s ease-in-out infinite;
 }
 
@@ -413,4 +512,152 @@ canvas {
 
 .fullscreen-canvas .nav-button.next {
   right: 40px;
+}
+
+.product-info-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 90%;
+    width: 500px;
+}
+
+.product-detail-container-popup {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-image-container-popup {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.product-detail-image-popup {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-detail-content-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.product-detail-title-popup {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-detail-price-popup {
+    font-size: 1.2rem;
+    color: #3e9c35;
+    font-weight: 500;
+}
+
+.product-detail-description-popup {
+    word-break: break-word;
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.product-detail-quantity-popup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn-popup {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-value-popup {
+    min-width: 30px;
+    text-align: center;
+}
+
+.product-detail-buttons-popup {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.buy-now-btn-popup, .add-to-cart-btn-popup {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.buy-now-btn-popup {
+    background: #ff4d4d;
+    color: white;
+}
+
+.add-to-cart-btn-popup {
+    background: white;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+}
+
+.close-detail-btn-popup {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .product-info-popup {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .product-image-container-popup {
+        height: 200px;
+    }
+
+    .product-detail-title-popup {
+        font-size: 1.2rem;
+    }
+
+    .product-detail-price-popup {
+        font-size: 1rem;
+    }
+
+    .product-detail-buttons-popup {
+        flex-direction: column;
+    }
 }

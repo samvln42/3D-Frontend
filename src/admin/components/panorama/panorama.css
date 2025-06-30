@@ -1,0 +1,445 @@
+.container_panorama {
+  width: 100%;
+  padding: 20px;
+  margin-top: 4rem;
+}
+
+.panorama_btn_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.panorama_btn_head h2 {
+  font-size: 24px;
+  color: #403f3f;
+}
+
+.panorama_btn_submit button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.panorama_btn_submit button:hover {
+  background-color: #0056b3;
+}
+
+.panorama_content_box {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.panorama_grid_container {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.panorama_grid_item {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.panorama_image_input_box {
+  width: 100%;
+  height: 200px;
+  cursor: pointer;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.panorama_image_input_box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.panorama_image_input_box:hover img {
+  transform: scale(1.05);
+}
+
+.panorama_image_input_box input {
+  display: none;
+}
+
+.panorama_image_actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.panorama_edit_image,
+.panorama_delete_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.panorama_edit_image:hover,
+.panorama_delete_image:hover {
+  background: white;
+  transform: translateY(-2px);
+}
+
+#panorama_icon_camera,
+#panorama_icon_trash {
+  width: 20px;
+  height: 20px;
+  color: #666;
+}
+
+#panorama_icon_trash {
+  color: #dc3545;
+}
+
+.panorama_input_fields {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panorama_input_fields input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.panorama_input_fields input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.panorama_add_box {
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #fcfcfc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.panorama_add_box:hover {
+  border-color: #007bff;
+  background-color: #f8f9fa;
+}
+
+#panorama_icon_plus {
+  width: 30px;
+  height: 30px;
+  color: #007bff;
+  transition: transform 0.3s ease;
+}
+
+.panorama_add_box:hover #panorama_icon_plus {
+  transform: scale(1.1);
+}
+
+/* panorama list item */
+#panorama {
+  display: flex;
+  position: absolute;
+  width: 99%;
+  padding: 1.5rem 1.5rem 0 17rem;
+}
+
+.panorama_container {
+  width: 100%;
+  padding: 20px;
+  margin-top: 4rem;
+}
+
+.panorama_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.panorama_container h1 {
+  font-size: 28px;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+}
+
+.panorama_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  padding: 25px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.panorama_list_item {
+  flex: 0 1 calc(33.333% - 20px);
+  min-width: 300px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panorama_list_item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.panorama_list_item_image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: #000;
+}
+
+.panorama_list_item_image canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.panorama_list_item_info {
+  padding: 20px;
+  background: #fff;
+}
+
+.panorama_info_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-right: 5px;
+}
+
+.panorama_info_row:last-child {
+  margin-bottom: 0;
+}
+
+.panorama_edit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: #f0f7ff;
+  border: 1px solid #e1efff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.panorama_edit:hover {
+  background: #e1efff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);
+}
+
+#panorama_icon_pencil {
+  color: #007bff;
+  font-size: 14px;
+}
+
+.panorama_list_item_info h2 {
+  font-size: 18px;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.panorama_list_item_info p {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.panorama_add_btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.panorama_add_btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+  .panorama_list_item {
+    flex: 0 1 calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #panorama {
+    padding: 1rem;
+  }
+
+  .panorama_container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .panorama_content {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .panorama_list_item {
+    flex: 0 1 100%;
+  }
+}
+
+.panorama_360_view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background: #000;
+}
+
+.close_360_btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close_360_btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.view_360_badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 123, 255, 0.9);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.delete_panorama_btn,
+.view_panorama_btn {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.delete_panorama_btn {
+  top: 10px;
+  left: 10px;
+}
+.view_panorama_btn {
+  top: 10px;
+  right: 10px;
+}
+
+.delete_panorama_btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.view_panorama_btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+#panorama_icon_pencil:hover {
+  color: #dc3545;
+}
+
+#panorama_icon_camera:hover {
+  color: #007bff;
+}
+
+.no_panoramas {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

@@ -19,8 +19,29 @@ export const More = () => {
   const [showConfirmationDelete, setShowConfirmationDelete] = useState(false);
 
   const storage = JSON.parse(window.localStorage.getItem("user"));
-  const userID = localStorage.getItem("userID");
+  const isAdmin = storage.is_admin;
+  const [store_detail, setStore_detail] = useState([]);
+
+  // get store detail
+  useEffect(() => {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${localStorage.getItem('token')}`);
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
+    };
+
+    fetch(`${import.meta.env.VITE_API}/store/${storage.store_id}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => setStore_detail(result))
+      .catch((error) => console.error(error));
+  }, [storage.store_id]);
+
+
   const navigate = useNavigate();
+
 
   const handleLogout = () => {
     localStorage.clear();
@@ -44,7 +65,6 @@ export const More = () => {
     setShowConfirmationDelete(false);
   };
 
-  const user = localStorage.getItem("user");
 
   //Function Delete
   const handleDeleteAccount = async () => {
@@ -90,12 +110,21 @@ export const More = () => {
               <img src={profile} alt="" />
             )}
             <div className="user_name">
-              Name: {storage.nickname || storage.email}
+              Name: {store_detail.name}
             </div>
           </div>
-          <Link to="/profileedit" className="right_box">
+          <div className="user_email">
+            Email: {store_detail.email}
+          </div>
+          <div className="user_phone">
+            Phone: {store_detail.phone}
+          </div>
+          <div className="user_address">    
+            Address: {store_detail.address}
+          </div>
+          {/* <Link to="/profileedit" className="right_box">
             <button>View</button>
-          </Link>
+          </Link> */}
         </div>
 
         {/* <hr className="hr" /> */}
@@ -144,15 +173,20 @@ export const More = () => {
             </div>
           )}
 
-          <hr className="hr" />
-          <div
-            className="menu_icon"
-            onClick={() => setShowConfirmationDelete(true)}
-          >
-            <MdDelete id="icon_more" />
-            <p>Delete account</p>
-          </div>
+          {/* {!isAdmin && (
+            <>
+              <hr className="hr" />
+              <div
+                className="menu_icon"
+                onClick={() => setShowConfirmationDelete(true)}
+              >
+                <MdDelete id="icon_more" />
+                <p>Delete account</p>
+              </div>
+            </>
 
+          )} */}
+          {/* 
           {showConfirmationDelete && (
             <div className="confirmation-popup">
               <p>Are you sure you want to Delete?</p>
@@ -165,7 +199,7 @@ export const More = () => {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
 
           <hr className="hr" />
         </div>

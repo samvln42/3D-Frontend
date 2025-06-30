@@ -13,3 +13,28 @@
   --black: #000;
 }
 
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #347effda;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2461cc;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: initial;
+  scrollbar-color: #347effda #f1f1f1;
+}
